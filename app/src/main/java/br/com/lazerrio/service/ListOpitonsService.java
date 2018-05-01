@@ -23,6 +23,9 @@ public interface ListOpitonsService {
     @GET("museum.php")
     public Call<List<Option>> listAllMuseum();
 
+    @GET("restaurant.php")
+    public Call<List<Option>> listAllRestaurants();
+
     @GET("sport.php")
     public Call<List<Option>> listAllSports();
 
