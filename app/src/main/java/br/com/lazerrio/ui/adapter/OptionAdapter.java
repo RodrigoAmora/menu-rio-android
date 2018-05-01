@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionViewHolder> {
 
@@ -43,14 +46,17 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
 
     public class OptionViewHolder extends RecyclerView.ViewHolder {
 
+        private CircleImageView imageView;
         private TextView name;
 
         public OptionViewHolder(View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.image);
             name = itemView.findViewById(R.id.name);
         }
 
         public void setValues(Option option) {
+            Picasso.get().load(option.getPhoto()).into(imageView);
             name.setText(option.getName());
         }
     }
