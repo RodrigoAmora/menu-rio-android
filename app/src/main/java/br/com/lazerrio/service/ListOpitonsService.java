@@ -20,6 +20,9 @@ public interface ListOpitonsService {
     @GET("movie.php")
     public Call<List<Option>> listAllMovie();
 
+    @GET("museum.php")
+    public Call<List<Option>> listAllMuseum();
+
     @GET("sport.php")
     public Call<List<Option>> listAllSports();
 
@@ -28,5 +31,5 @@ public interface ListOpitonsService {
 
     @GET("teather.php")
     public Call<List<Option>> listAllTeathers();
-    
+
 }

@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity
             bundle.putString("option", "movie");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_museum) {
-
+            bundle.putString("option", "museum");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_restaurant) {
 
         } else if (id == R.id.nav_shopping) {
