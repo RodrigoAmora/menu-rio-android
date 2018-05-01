@@ -77,10 +77,9 @@ public class MainActivity extends AppCompatActivity
             bundle.putString("option", "leisure");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_movie) {
-
+            bundle.putString("option", "movie");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_museum) {
-
-        } else if (id == R.id.nav_leisure) {
 
         } else if (id == R.id.nav_restaurant) {
 
