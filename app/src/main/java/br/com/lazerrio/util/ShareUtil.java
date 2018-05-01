@@ -1,6 +1,5 @@
 package br.com.lazerrio.util;
 
-import android.content.Context;
 import android.content.Intent;
 
 public class ShareUtil {
