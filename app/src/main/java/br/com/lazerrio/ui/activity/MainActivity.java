@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_share) {
             ShareUtil.directShare(this, getString(R.string.share), "");
+        } else if (id == R.id.nav_theater) {
+            bundle.putString("option", "theater");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

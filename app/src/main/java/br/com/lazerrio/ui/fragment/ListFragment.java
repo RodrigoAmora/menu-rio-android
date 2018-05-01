@@ -93,6 +93,8 @@ public class ListFragment extends Fragment implements Delegate {
                 call = service.listAllShoppings();
             } else if (option.equals("sport")) {
                 call = service.listAllSports();
+            } else if (option.equals("theater")) {
+                call = service.listAllTeathers();
             }
 
             call.enqueue(callback);

@@ -36,6 +36,10 @@
             android:id="@+id/nav_sport"
             android:icon="@mipmap/esportes"
             android:title="@string/sports" />
+        <item
+            android:id="@+id/nav_theater"
+            android:icon="@mipmap/teatro"
+            android:title="@string/theaters" />
     </group>
 
     <item android:title="Communicate">
