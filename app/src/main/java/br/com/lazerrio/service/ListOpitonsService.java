@@ -11,6 +11,9 @@ public interface ListOpitonsService {
     @GET("praias.php")
     public Call<List<Option>> listAllBeahes();
 
+    @GET("hotel.php")
+    public Call<List<Option>> listAllHotels();
+
     @GET("teather.php")
     public Call<List<Option>> listAllTeathers();
 

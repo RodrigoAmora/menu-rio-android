@@ -89,8 +89,10 @@ public class ListFragment extends Fragment implements Delegate {
         if (NetworkUtil.checkConnection(getActivity())) {
             ProgressDiaologUtil.showProgressDiaolg(getActivity(), "", getString(R.string.wait), false);
 
-            if (option.equals("shopping")) {
+            if (option.equals("beach")) {
                 call = service.listAllBeahes();
+            } else if (option.equals("hotel")) {
+                call = service.listAllHotels();
             } else if (option.equals("shopping")) {
                 call = service.listAllShoppings();
             } else if (option.equals("sport")) {
