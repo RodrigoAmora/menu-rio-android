@@ -1,5 +1,6 @@
 package br.com.lazerrio.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +16,7 @@ import br.com.lazerrio.application.MyApplication;
 import br.com.lazerrio.component.ListOptionsComponent;
 import br.com.lazerrio.ui.fragment.ListFragment;
 import br.com.lazerrio.util.FragmentUtil;
+import br.com.lazerrio.util.ShareUtil;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,8 +66,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Bundle bundle = new Bundle();
 
         if (id == R.id.nav_beach) {
+
         } else if (id == R.id.nav_hotel) {
 
         } else if (id == R.id.nav_leisure) {
@@ -79,11 +83,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_restaurant) {
 
         } else if (id == R.id.nav_shopping) {
-            Bundle bundle = new Bundle();
             bundle.putString("option", "shopping");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_sport) {
 
+        } else if (id == R.id.nav_sport) {
+            Intent intent = ShareUtil.directShare(getString(R.string.share), "");
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
