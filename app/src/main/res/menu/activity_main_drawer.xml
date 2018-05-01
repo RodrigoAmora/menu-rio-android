@@ -5,21 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_beach"
+            android:icon="@mipmap/praia"
+            android:title="@string/beaches" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_hotel"
+            android:icon="@mipmap/hotel"
+            android:title="@string/hotels" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_leisure"
+            android:icon="@mipmap/opcoes"
+            android:title="@string/leisure" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_movie"
+            android:icon="@mipmap/cine"
+            android:title="@string/movies" />
+        <item
+            android:id="@+id/nav_museum"
+            android:icon="@mipmap/museu"
+            android:title="@string/museuns" />
+        <item
+            android:id="@+id/nav_restaurant"
+            android:icon="@mipmap/chef"
+            android:title="@string/restaurants" />
+        <item
+            android:id="@+id/nav_sport"
+            android:icon="@mipmap/esportes"
+            android:title="@string/sports" />
     </group>
 
     <item android:title="Communicate">
@@ -27,11 +39,7 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/share" />
         </menu>
     </item>
 
