@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
 
         if (id == R.id.nav_beach) {
-
+            bundle.putString("option", "praia");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_hotel) {
 
         } else if (id == R.id.nav_leisure) {

@@ -8,6 +8,9 @@ import retrofit2.http.GET;
 
 public interface ListOpitonsService {
 
+    @GET("praias.php")
+    public Call<List<Option>> listAllBeahes();
+
     @GET("teather.php")
     public Call<List<Option>> listAllTeathers();
 
