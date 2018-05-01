@@ -18,7 +18,7 @@ public class ListOptionsModule {
     }
 
     @Provides
-    public ListOpitonsService getLoginService() {
+    public ListOpitonsService getListOptionsService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL_LAZER_RIO_API)
                 .addConverterFactory(GsonConverterFactory.create())

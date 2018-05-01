@@ -11,6 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.lazerrio.R;
+import br.com.lazerrio.application.MyApplication;
+import br.com.lazerrio.component.ListOptionsComponent;
+import br.com.lazerrio.ui.fragment.ListFragment;
+import br.com.lazerrio.util.FragmentUtil;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createToolbarAndNavigationView();
+        getComponents();
     }
 
     @Override
@@ -61,7 +66,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_beach) {
-            
         } else if (id == R.id.nav_hotel) {
 
         } else if (id == R.id.nav_leisure) {
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_restaurant) {
 
+        } else if (id == R.id.nav_shopping) {
+            Bundle bundle = new Bundle();
+            bundle.putString("option", "shopping");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_sport) {
 
         }
@@ -97,6 +105,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+    }
+
+    private void getComponents() {
+        MyApplication app = (MyApplication) this.getApplication();
+        ListOptionsComponent component = app.getListOptionsComponent();
+        component.inject(this);
     }
 
 }

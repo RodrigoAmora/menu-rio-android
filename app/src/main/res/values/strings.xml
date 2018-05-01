@@ -14,9 +14,12 @@
     <string name="hotels">Hotels</string>
     <string name="movies">Movies</string>
     <string name="museuns">Museuns</string>
+    <string name="name">Name:</string>
     <string name="restaurants">Restaurants</string>
     <string name="theaters">Theaters</string>
     <string name="share">Share</string>
+    <string name="shoppings">Shoppings</string>
     <string name="sports">Sports</string>
+    <string name="wait">Wait...</string>
 
 </resources>

@@ -32,8 +32,8 @@ public class ListOptionsCallback implements Callback<List<Option>> {
         this.delegate.error();
     }
 
-    public void setOptions(List<Option> options) {
-        this.options = options;
+    public List<Option> getOptions() {
+        return options;
     }
 
 }
