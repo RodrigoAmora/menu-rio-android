@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity
             bundle.putString("option", "hotel");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_leisure) {
-
+            bundle.putString("option", "leisure");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_movie) {
 
         } else if (id == R.id.nav_museum) {
