@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity
             bundle.putString("option", "shopping");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_sport) {
-
+            bundle.putString("option", "sport");
+            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_share) {
             ShareUtil.directShare(this, getString(R.string.share), "");
         }

@@ -34,6 +34,7 @@ public class ListFragment extends Fragment implements Delegate {
     @Inject
     ListOpitonsService service;
 
+    Call<List<Option>> call;
     List<Option> optionList;
     RecyclerView recyclerView;
 
@@ -84,9 +85,16 @@ public class ListFragment extends Fragment implements Delegate {
     }
 
     private void getListOptions() {
+        String option = getArguments().getString("option");
         if (NetworkUtil.checkConnection(getActivity())) {
             ProgressDiaologUtil.showProgressDiaolg(getActivity(), "", getString(R.string.wait), false);
-            Call<List<Option>> call = service.listAllShoppings();
+
+            if (option.equals("shopping")) {
+                call = service.listAllShoppings();
+            } else if (option.equals("sport")) {
+                call = service.listAllSports();
+            }
+
             call.enqueue(callback);
         } else {
             Toast.makeText(getActivity(), getString(R.string.alert_no_internet), Toast.LENGTH_LONG).show();
