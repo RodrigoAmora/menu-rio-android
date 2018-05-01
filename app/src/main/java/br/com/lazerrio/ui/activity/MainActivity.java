@@ -1,6 +1,5 @@
 package br.com.lazerrio.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -87,9 +86,8 @@ public class MainActivity extends AppCompatActivity
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_sport) {
 
-        } else if (id == R.id.nav_sport) {
-            Intent intent = ShareUtil.directShare(getString(R.string.share), "");
-            startActivity(intent);
+        } else if (id == R.id.nav_share) {
+            ShareUtil.directShare(this, getString(R.string.share), "");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
