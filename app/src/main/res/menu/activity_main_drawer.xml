@@ -29,6 +29,10 @@
             android:icon="@mipmap/chef"
             android:title="@string/restaurants" />
         <item
+            android:id="@+id/nav_shopping"
+            android:icon="@mipmap/shopping"
+            android:title="@string/shoppings" />
+        <item
             android:id="@+id/nav_sport"
             android:icon="@mipmap/esportes"
             android:title="@string/sports" />
