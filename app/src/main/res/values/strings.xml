@@ -8,6 +8,9 @@
     <string name="action_settings">Settings</string>
 
     <string name="alert_no_internet">No intternet!</string>
+    <string name="alert_gps_disables">GPS disabled!</string>
+
+    <string name="error_cant_was_possible_get_options">Can\'t was possible get the options</string>
 
     <string name="beaches">Beaches</string>
     <string name="leisure">Leisure</string>
@@ -19,7 +22,7 @@
     <string name="restaurants">Restaurants</string>
     <string name="theaters">Theaters</string>
     <string name="share">Share</string>
-    <string name="shoppings">Shoppings</string>
+    <string name="shopping_mall">Shopping Mall</string>
     <string name="sports">Sports</string>
     <string name="wait">Wait...</string>
 
