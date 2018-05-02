@@ -25,5 +25,6 @@
     <string name="shopping_mall">Shopping</string>
     <string name="sports">Esportes</string>
     <string name="wait">Aguarde...</string>
+    <string name="version">Versão:</string>
 
 </resources>

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import br.com.lazerrio.R;
 import br.com.lazerrio.application.MyApplication;
 import br.com.lazerrio.component.ListOptionsComponent;
+import br.com.lazerrio.ui.fragment.AboutFragment;
 import br.com.lazerrio.ui.fragment.ListFragment;
 import br.com.lazerrio.util.FragmentUtil;
 import br.com.lazerrio.util.ShareUtil;
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_settings) {
+            FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getFragmentManager(), false, null);
         }
 
         return super.onOptionsItemSelected(item);
