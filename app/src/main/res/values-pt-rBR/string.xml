@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Menu Rio</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_about">Sobre</string>
+    <string name="action_settings">Configurações</string>
+
+    <string name="alert_no_internet">Sem intternet!</string>
+    <string name="alert_gps_disables">GPS desativado!</string>
+
+    <string name="error_cant_was_possible_get_options">Não foi possível pesquisar as opções</string>
+
+    <string name="beaches">Praias</string>
+    <string name="leisure">Lazer</string>
+    <string name="created_by_rodrigo_amora">Criado por Rodrigo Amora</string>
+    <string name="hotels">Hotéis</string>
+    <string name="movies">Cinemas</string>
+    <string name="museuns">Museus</string>
+    <string name="name">Nome:</string>
+    <string name="restaurants">Restaurantes</string>
+    <string name="theaters">Teatros</string>
+    <string name="share">Compartilhar</string>
+    <string name="shopping_mall">Shopping</string>
+    <string name="sports">Esportes</string>
+    <string name="wait">Aguarde...</string>
+
+</resources>
