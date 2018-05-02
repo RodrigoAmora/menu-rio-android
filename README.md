@@ -1,4 +1,4 @@
-# LazerRio
+# Menu Rio
 This is an APP for Android that list Options of Leisure, Restaurants, Beaches, Museuns in Rio de Janeiro. <br>
 This project run from Android 4.1
 
