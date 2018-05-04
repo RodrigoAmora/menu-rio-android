@@ -61,7 +61,7 @@ public class ListFragment extends Fragment implements Delegate {
     @Override
     public void error() {
         ProgressDiaologUtil.dimissProgressDialog();
-        Toast.makeText(getActivity(), getString(R.string.error_cant_was_possible_get_options), Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), getString(R.string.error_couldnt_was_possible_get_options), Toast.LENGTH_LONG).show();
     }
 
     @Override

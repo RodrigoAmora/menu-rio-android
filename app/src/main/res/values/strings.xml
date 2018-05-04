@@ -10,7 +10,7 @@
     <string name="alert_no_internet">No intternet!</string>
     <string name="alert_gps_disables">GPS disabled!</string>
 
-    <string name="error_cant_was_possible_get_options">Can\'t was possible get the options</string>
+    <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
 
     <string name="beaches">Beaches</string>
     <string name="leisure">Leisure</string>
