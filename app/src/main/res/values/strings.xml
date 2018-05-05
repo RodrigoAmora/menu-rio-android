@@ -13,13 +13,14 @@
     <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
 
     <string name="beaches">Beaches</string>
-    <string name="leisure">Leisure</string>
     <string name="created_by">Created by</string>
     <string name="created_by_rodrigo_amora">Created by Rodrigo Amora</string>
     <string name="download_the_app">Download the APP Menu Rio:</string>
     <string name="email">E-mail:</string>
     <string name="email2">E-mail: rodrigo.amora.freitas@gmail.com</string>
     <string name="hotels">Hotels</string>
+    <string name="leisure">Leisure</string>
+    <string name="link_app">https://play.google.com/store/apps/details?id=br.com.lazerrio</string>
     <string name="movies">Movies</string>
     <string name="museuns">Museuns</string>
     <string name="name">Name:</string>

@@ -1,5 +1,6 @@
 package br.com.lazerrio.ui.activity;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -72,35 +73,37 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_beach) {
             bundle.putString("option", "beach");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_hotel) {
             bundle.putString("option", "hotel");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_leisure) {
             bundle.putString("option", "leisure");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_movie) {
             bundle.putString("option", "movie");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_museum) {
             bundle.putString("option", "museum");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_restaurant) {
             bundle.putString("option", "restaurant");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_shopping) {
             bundle.putString("option", "shopping");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_sport) {
             bundle.putString("option", "sport");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
-        } else if (id == R.id.nav_share) {
-            String shareText = getString(R.string.download_the_app)+"\n"
-                    +"https://play.google.com/store/apps/details?id=br.com.lazerrio";
-            ShareUtil.directShare(this, getString(R.string.share), shareText);
+            changeFragment(ListFragment.class, bundle);
         } else if (id == R.id.nav_theater) {
             bundle.putString("option", "theater");
-            FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
+            changeFragment(ListFragment.class, bundle);
+        } else if (id == R.id.nav_share) {
+            String shareText = getString(R.string.download_the_app)+"\n"
+                    +getString(R.string.link_app);
+            ShareUtil.directShare(this, getString(R.string.share), shareText);
+        } else if (id == R.id.nav_about) {
+            changeFragment(AboutFragment.class, bundle);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -128,6 +131,10 @@ public class MainActivity extends AppCompatActivity
         MyApplication app = (MyApplication) this.getApplication();
         ListOptionsComponent component = app.getListOptionsComponent();
         component.inject(this);
+    }
+
+    private void changeFragment(Class<? extends Fragment> fragmentClass, Bundle bundle) {
+        FragmentUtil.changeFragment(R.id.conatiner, fragmentClass, getFragmentManager(), false, bundle);
     }
 
 }
