@@ -34,6 +34,11 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$materialDesignVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    //GOOGLE-PLAY-SERVICES
+    def googlePlayServicesVersion = '8.3.0'
+    compile "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
+    compile "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+
     //RETROFIT2
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
