@@ -1,12 +1,12 @@
 # Menu Rio
-Menu Rio is an APP for Android that list Options of Leisure, Restaurants, Beaches, Museuns in Rio de Janeiro. <br>
-This project run from Android 4.1 <br>
+Menu Rio is an APP for Android that list Options of Leisure ans Sports, Restaurants, Beaches, Museuns, Shopping Mall and Theaters on Rio de Janeiro. <br>
+The project run from Android 4.1 <br>
 
-This Porject use as dependencies:
+The porject use as dependencies:
 - MaterialDesign;
 - GoogleMapsAPI;
 - Retrofit 2;
-- Daager 2;
+- Dagger 2;
 - CircleViewImage;
 - Picasso;
 
