@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_settings) {
+        } else if (id == R.id.action_about) {
             FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getFragmentManager(), false, null);
         }
 
@@ -95,7 +95,9 @@ public class MainActivity extends AppCompatActivity
             bundle.putString("option", "sport");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
         } else if (id == R.id.nav_share) {
-            ShareUtil.directShare(this, getString(R.string.share), "");
+            String shareText = getString(R.string.download_the_app)+"\n"
+                    +"https://play.google.com/store/apps/details?id=br.com.lazerrio";
+            ShareUtil.directShare(this, getString(R.string.share), shareText);
         } else if (id == R.id.nav_theater) {
             bundle.putString("option", "theater");
             FragmentUtil.changeFragment(R.id.conatiner, ListFragment.class, getFragmentManager(), false, bundle);
