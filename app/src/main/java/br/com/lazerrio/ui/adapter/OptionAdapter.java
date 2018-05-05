@@ -1,6 +1,8 @@
 package br.com.lazerrio.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,14 +16,16 @@ import java.util.List;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
+import br.com.lazerrio.ui.fragment.DetailsFragment;
+import br.com.lazerrio.util.FragmentUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionViewHolder> {
 
-    private Context context;
+    private Activity context;
     private List<Option> optionList;
 
-    public OptionAdapter(Context context, List<Option> optionList) {
+    public OptionAdapter(Activity context, List<Option> optionList) {
         this.context = context;
         this.optionList = optionList;
     }
@@ -35,8 +39,19 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OptionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OptionViewHolder holder, final int position) {
         holder.setValues(optionList.get(position));
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putDouble("lat", Double.parseDouble(optionList.get(position).getLat()));
+                bundle.putDouble("lng", Double.parseDouble(optionList.get(position).getLng()));
+                DetailsFragment detailsFragment = new DetailsFragment();
+                detailsFragment.setArguments(bundle);
+                context.getFragmentManager().beginTransaction().replace(R.id.conatiner, detailsFragment).commit();
+            }
+        });
     }
 
     @Override
@@ -61,6 +76,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
             } else {
                 Picasso.get().load(option.getPhoto()).into(imageView);
             }
+
             name.setText(option.getName());
         }
     }
