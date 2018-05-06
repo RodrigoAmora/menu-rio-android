@@ -1,14 +1,11 @@
 package br.com.lazerrio.ui.fragment;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +18,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.lazerrio.R;
-import br.com.lazerrio.util.PermissionUtil;
-
-import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class DetailsFragment extends Fragment implements com.google.android.gms.maps.OnMapReadyCallback {
 
