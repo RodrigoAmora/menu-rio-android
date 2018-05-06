@@ -1,4 +1,4 @@
-package br.com.lazerrio.ui.fragment;
+package br.com.lazerrio.util;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

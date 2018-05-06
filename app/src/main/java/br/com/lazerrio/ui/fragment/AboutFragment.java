@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import br.com.lazerrio.R;
+import br.com.lazerrio.util.PackageInfoUtil;
 
 public class AboutFragment extends Fragment {
 
