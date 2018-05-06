@@ -30,11 +30,11 @@ android {
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
     //MATERIAL-DESIGN
-    def materialDesignVersion = '27.1.1'
-    compile "com.android.support:appcompat-v7:$materialDesignVersion"
-    compile "com.android.support:design:$materialDesignVersion"
-    compile "com.android.support:cardview-v7:$materialDesignVersion"
-    compile "com.android.support:recyclerview-v7:$materialDesignVersion"
+    def materialDesignVersion = '26.1.0'
+    implementation "com.android.support:appcompat-v7:$materialDesignVersion"
+    implementation "com.android.support:design:$materialDesignVersion"
+    implementation "com.android.support:cardview-v7:$materialDesignVersion"
+    implementation "com.android.support:recyclerview-v7:$materialDesignVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //GOOGLE-PLAY-SERVICES
