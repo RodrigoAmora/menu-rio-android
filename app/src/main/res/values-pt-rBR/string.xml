@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Menu Rio</string>
 
+    <string name="API_KEY">AIzaSyAIq9Jy5kFpiXUOxhCQPQSSCrm3ckh9LJ0</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
