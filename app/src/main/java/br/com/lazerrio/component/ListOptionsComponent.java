@@ -1,7 +1,6 @@
 package br.com.lazerrio.component;
 
 import br.com.lazerrio.module.ListOptionsModule;
-import br.com.lazerrio.ui.activity.MainActivity;
 import br.com.lazerrio.ui.fragment.ListFragment;
 import dagger.Component;
 
@@ -9,6 +8,6 @@ import dagger.Component;
 public interface ListOptionsComponent {
 
     public void inject(ListFragment fragment);
-    public void inject(MainActivity activity);
+    //public void inject(MainActivity activity);
 
 }

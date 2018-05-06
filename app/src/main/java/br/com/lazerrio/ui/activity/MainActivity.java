@@ -28,8 +28,6 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int PERMISSION_REQUEST_CODE = 200;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         createToolbarAndNavigationView();
-        getComponents();
     }
 
     @Override
@@ -145,12 +142,6 @@ public class MainActivity extends AppCompatActivity
         int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION);
 
         return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED;
-    }
-
-    private void getComponents() {
-        MyApplication app = (MyApplication) this.getApplication();
-        ListOptionsComponent component = app.getListOptionsComponent();
-        component.inject(this);
     }
 
     private void changeFragment(Class<? extends Fragment> fragmentClass, Bundle bundle) {
