@@ -1,6 +1,7 @@
 package br.com.lazerrio.ui.fragment;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.lazerrio.R;
+import br.com.lazerrio.util.PermissionUtil;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class DetailsFragment extends Fragment implements com.google.android.gms.maps.OnMapReadyCallback {
 
@@ -37,32 +41,20 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         return rootView;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap map) {
-        this.map = map;
+        map.setMyLocationEnabled(true);
 
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-
-        this.map.setMyLocationEnabled(true);
-
-        LatLng latLng = new LatLng(-22.9036366,-43.1797322);
+        LatLng latLng = new LatLng(getArguments().getDouble("lat"), getArguments().getDouble("lng"));
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-        this.map.moveCamera(update);
-        this.map.addMarker(new MarkerOptions()
-                .title("nnjknk")
-                .snippet("nmnm")
+        map.moveCamera(update);
+        map.addMarker(new MarkerOptions()
+                .title(getArguments().getString("name"))
+                //.snippet(getArguments().getString("desc"))
                 .position(latLng));
 
-        this.map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 
 }

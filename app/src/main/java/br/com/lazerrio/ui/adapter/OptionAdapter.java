@@ -47,8 +47,12 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
                 Bundle bundle = new Bundle();
                 bundle.putDouble("lat", Double.parseDouble(optionList.get(position).getLat()));
                 bundle.putDouble("lng", Double.parseDouble(optionList.get(position).getLng()));
+                bundle.putString("desc", optionList.get(position).getDescription());
+                bundle.putString("name", optionList.get(position).getName());
+
                 DetailsFragment detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(bundle);
+
                 context.getFragmentManager().beginTransaction().replace(R.id.conatiner, detailsFragment).commit();
             }
         });
