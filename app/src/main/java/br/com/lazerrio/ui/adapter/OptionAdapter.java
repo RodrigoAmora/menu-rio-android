@@ -1,7 +1,6 @@
 package br.com.lazerrio.ui.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +16,6 @@ import java.util.List;
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.ui.fragment.DetailsFragment;
-import br.com.lazerrio.util.FragmentUtil;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionViewHolder> {
@@ -41,7 +39,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     @Override
     public void onBindViewHolder(@NonNull OptionViewHolder holder, final int position) {
         holder.setValues(optionList.get(position));
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        holder.viewDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -66,10 +64,11 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     public class OptionViewHolder extends RecyclerView.ViewHolder {
 
         private CircleImageView imageView;
-        private TextView name;
+        private TextView name, viewDetails;
 
         public OptionViewHolder(View itemView) {
             super(itemView);
+            viewDetails = itemView.findViewById(R.id.view_details);
             imageView = itemView.findViewById(R.id.image);
             name = itemView.findViewById(R.id.name);
         }
