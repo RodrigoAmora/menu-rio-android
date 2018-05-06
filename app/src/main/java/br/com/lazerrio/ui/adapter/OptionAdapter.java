@@ -47,6 +47,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
                 bundle.putDouble("lng", Double.parseDouble(optionList.get(position).getLng()));
                 bundle.putString("desc", optionList.get(position).getDescription());
                 bundle.putString("name", optionList.get(position).getName());
+                bundle.putString("photo", optionList.get(position).getPhoto());
 
                 DetailsFragment detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(bundle);

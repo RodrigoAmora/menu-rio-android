@@ -9,6 +9,8 @@ import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,17 +18,28 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.picasso.Picasso;
 
 import br.com.lazerrio.R;
 
 public class DetailsFragment extends Fragment implements com.google.android.gms.maps.OnMapReadyCallback {
 
-    GoogleMap map;
+    ImageView photo;
+    TextView description, name;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_details, container, false);
+
+        description = rootView.findViewById(R.id.description);
+        description.setText(getArguments().getString("desc"));
+
+        name = rootView.findViewById(R.id.name);
+        name.setText(getArguments().getString("name"));
+
+        photo = rootView.findViewById(R.id.photo);
+        Picasso.get().load(getArguments().getString("photo")).into(photo);
 
         MapFragment mapFragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         mapFragment.getMapAsync(this);
