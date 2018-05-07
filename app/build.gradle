@@ -7,8 +7,8 @@ android {
         applicationId "br.com.lazerrio"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 2
-        versionName "2.0"
+        versionCode 4
+        versionName "2.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -30,7 +30,7 @@ android {
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
     //MATERIAL-DESIGN
-    def materialDesignVersion = '26.1.0'
+    def materialDesignVersion = '27.1.1'
     implementation "com.android.support:appcompat-v7:$materialDesignVersion"
     implementation "com.android.support:design:$materialDesignVersion"
     implementation "com.android.support:cardview-v7:$materialDesignVersion"
