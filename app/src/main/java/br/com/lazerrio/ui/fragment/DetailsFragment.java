@@ -39,7 +39,12 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         name.setText(getArguments().getString("name"));
 
         photo = rootView.findViewById(R.id.photo);
-        Picasso.get().load(getArguments().getString("photo")).into(photo);
+        String urlPhoto = getArguments().getString("photo");
+        if (urlPhoto == null || urlPhoto.isEmpty()) {
+            Picasso.get().load(R.drawable.no_photo).into(photo);
+        } else {
+            Picasso.get().load(urlPhoto).into(photo);
+        }
 
         MapFragment mapFragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         mapFragment.getMapAsync(this);
