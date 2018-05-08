@@ -14,8 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.lazerrio.R;
-import br.com.lazerrio.application.MyApplication;
-import br.com.lazerrio.component.ListOptionsComponent;
 import br.com.lazerrio.ui.fragment.AboutFragment;
 import br.com.lazerrio.ui.fragment.ListFragment;
 import br.com.lazerrio.util.FragmentUtil;
