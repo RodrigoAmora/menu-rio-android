@@ -76,9 +76,9 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
 
         public void setValues(Option option) {
             if (option.getPhoto() == null || option.getPhoto().isEmpty()) {
-                Picasso.get().load(R.drawable.no_photo).into(imageView);
+                Picasso.get().load(R.drawable.no_photo).placeholder(R.mipmap.ic_launcher_round).into(imageView);
             } else {
-                Picasso.get().load(option.getPhoto()).into(imageView);
+                Picasso.get().load(option.getPhoto()).placeholder(R.mipmap.ic_launcher_round).into(imageView);
             }
 
             name.setText(option.getName());

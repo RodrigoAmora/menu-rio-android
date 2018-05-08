@@ -39,11 +39,12 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         name.setText(getArguments().getString("name"));
 
         photo = rootView.findViewById(R.id.photo);
+
         String urlPhoto = getArguments().getString("photo");
         if (urlPhoto == null || urlPhoto.isEmpty()) {
-            Picasso.get().load(R.drawable.no_photo).into(photo);
+            Picasso.get().load(R.drawable.no_photo).placeholder(R.mipmap.ic_launcher).into(photo);
         } else {
-            Picasso.get().load(urlPhoto).into(photo);
+            Picasso.get().load(urlPhoto).placeholder(R.mipmap.ic_launcher).into(photo);
         }
 
         MapFragment mapFragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
@@ -55,7 +56,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap map) {
-        map.setMyLocationEnabled(true);
+        map.setMyLocationEnabled(false);
 
         LatLng latLng = new LatLng(getArguments().getDouble("lat"), getArguments().getDouble("lng"));
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
