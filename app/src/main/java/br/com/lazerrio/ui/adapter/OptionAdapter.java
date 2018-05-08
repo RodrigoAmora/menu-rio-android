@@ -1,7 +1,6 @@
 package br.com.lazerrio.ui.adapter;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,13 +14,15 @@ import java.util.List;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
-import br.com.lazerrio.ui.fragment.DetailsFragment;
+import br.com.lazerrio.ui.listener.OnItemClickListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionViewHolder> {
 
     private Activity context;
     private List<Option> optionList;
+
+    private OnItemClickListener onItemClickListener;
 
     public OptionAdapter(Activity context, List<Option> optionList) {
         this.context = context;
@@ -42,17 +43,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
         holder.viewDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putDouble("lat", Double.parseDouble(optionList.get(position).getLat()));
-                bundle.putDouble("lng", Double.parseDouble(optionList.get(position).getLng()));
-                bundle.putString("desc", optionList.get(position).getDescription());
-                bundle.putString("name", optionList.get(position).getName());
-                bundle.putString("photo", optionList.get(position).getPhoto());
-
-                DetailsFragment detailsFragment = new DetailsFragment();
-                detailsFragment.setArguments(bundle);
-
-                context.getFragmentManager().beginTransaction().replace(R.id.conatiner, detailsFragment).commit();
+                onItemClickListener.onItemClick(optionList.get(position));
             }
         });
     }
@@ -60,6 +51,10 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     @Override
     public int getItemCount() {
         return optionList.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     public class OptionViewHolder extends RecyclerView.ViewHolder {

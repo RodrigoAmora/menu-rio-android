@@ -23,6 +23,7 @@ import br.com.lazerrio.delegate.Delegate;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.adapter.OptionAdapter;
+import br.com.lazerrio.ui.listener.OnItemClickListener;
 import br.com.lazerrio.util.NetworkUtil;
 import br.com.lazerrio.util.ProgressDiaologUtil;
 import retrofit2.Call;
@@ -119,6 +120,22 @@ public class ListFragment extends Fragment implements Delegate {
     private void populateRecyclerView() {
         OptionAdapter adapter = new OptionAdapter(getActivity(), optionList);
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(Option option) {
+                Bundle bundle = new Bundle();
+                bundle.putDouble("lat", Double.parseDouble(option.getLat()));
+                bundle.putDouble("lng", Double.parseDouble(option.getLng()));
+                bundle.putString("desc", option.getDescription());
+                bundle.putString("name", option.getName());
+                bundle.putString("photo", option.getPhoto());
+
+                DetailsFragment detailsFragment = new DetailsFragment();
+                detailsFragment.setArguments(bundle);
+
+                getFragmentManager().beginTransaction().replace(R.id.conatiner, detailsFragment).commit();
+            }
+        });
     }
 
 }
