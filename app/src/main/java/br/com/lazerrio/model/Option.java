@@ -1,6 +1,8 @@
 package br.com.lazerrio.model;
 
-public class Option {
+import java.io.Serializable;
+
+public class Option implements Serializable {
 
     private String id, name, description, photo;
     private String address,neighborhood, number, lat, lng;

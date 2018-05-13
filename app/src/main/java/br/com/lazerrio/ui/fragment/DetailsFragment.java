@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import br.com.lazerrio.R;
+import br.com.lazerrio.model.Option;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -33,7 +34,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     @BindView(R.id.description)
     TextView description;
 
-    @BindView(R.id.description)
+    @BindView(R.id.name)
     TextView name;
 
     private Unbinder unbinder;
@@ -45,8 +46,10 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
         unbinder = ButterKnife.bind(this, rootView);
 
-        description.setText(getArguments().getString("desc"));
-        name.setText(getArguments().getString("name"));
+        Option option = (Option) getArguments().getSerializable("option");
+
+        description.setText(option.getDescription());
+        name.setText(option.getName());
 
         String urlPhoto = getArguments().getString("photo");
         if (urlPhoto == null || urlPhoto.isEmpty()) {

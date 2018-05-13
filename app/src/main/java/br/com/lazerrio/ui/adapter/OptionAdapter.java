@@ -38,6 +38,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     @Override
     public OptionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_option, parent, false);
+        unbinder = ButterKnife.bind(this, view);
         OptionViewHolder holder = new OptionViewHolder(view);
         return holder;
     }
@@ -64,7 +65,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
 
     public class OptionViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.description)
+        @BindView(R.id.image)
         CircleImageView imageView;
 
         @BindView(R.id.name)

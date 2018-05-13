@@ -50,10 +50,10 @@ public class ListFragment extends Fragment implements Delegate {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, container,	false);
 
-        configureRecyclerView();
-
         unbinder = ButterKnife.bind(this, rootView);
         callback = new ListOptionsCallback(this);
+
+        configureRecyclerView();
 
         return rootView;
     }
@@ -136,12 +136,8 @@ public class ListFragment extends Fragment implements Delegate {
             @Override
             public void onItemClick(Option option) {
                 Bundle bundle = new Bundle();
-                bundle.putDouble("lat", Double.parseDouble(option.getLat()));
-                bundle.putDouble("lng", Double.parseDouble(option.getLng()));
-                bundle.putString("desc", option.getDescription());
-                bundle.putString("name", option.getName());
-                bundle.putString("photo", option.getPhoto());
-
+                bundle.putSerializable("option", option);
+                
                 DetailsFragment detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(bundle);
 
