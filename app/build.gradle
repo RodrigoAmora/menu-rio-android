@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 26
@@ -41,6 +42,10 @@ dependencies {
     def googlePlayServicesVersion = '9.4.0'
     compile "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
     compile "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+
+    //BUTTER-KNIFE
+    implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-SNAPSHOT'
 
     //RETROFIT2
     compile 'com.squareup.retrofit2:retrofit:2.1.0'

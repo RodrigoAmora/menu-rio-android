@@ -15,12 +15,17 @@ import java.util.List;
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionViewHolder> {
 
     private Activity context;
     private List<Option> optionList;
+
+    private Unbinder unbinder;
 
     private OnItemClickListener onItemClickListener;
 
@@ -59,14 +64,18 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
 
     public class OptionViewHolder extends RecyclerView.ViewHolder {
 
-        private CircleImageView imageView;
-        private TextView name, viewDetails;
+        @BindView(R.id.description)
+        CircleImageView imageView;
+
+        @BindView(R.id.name)
+        TextView name;
+
+        @BindView(R.id.view_details)
+        TextView viewDetails;
 
         public OptionViewHolder(View itemView) {
             super(itemView);
-            viewDetails = itemView.findViewById(R.id.view_details);
-            imageView = itemView.findViewById(R.id.image);
-            name = itemView.findViewById(R.id.name);
+            unbinder = ButterKnife.bind(this, itemView);
         }
 
         public void setValues(Option option) {

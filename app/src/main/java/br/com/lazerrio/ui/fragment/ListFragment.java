@@ -26,30 +26,42 @@ import br.com.lazerrio.ui.adapter.OptionAdapter;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
 import br.com.lazerrio.util.NetworkUtil;
 import br.com.lazerrio.util.ProgressDiaologUtil;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import retrofit2.Call;
 
 public class ListFragment extends Fragment implements Delegate {
+
+    @BindView(R.id.recyler_view)
+    RecyclerView recyclerView;
+
+    private Call<List<Option>> call;
+    private List<Option> optionList;
+    private Unbinder unbinder;
 
     ListOptionsCallback callback;
 
     @Inject
     ListOpitonsService service;
 
-    Call<List<Option>> call;
-    List<Option> optionList;
-    RecyclerView recyclerView;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, container,	false);
 
-        recyclerView = rootView.findViewById(R.id.recyler_view);
         configureRecyclerView();
 
+        unbinder = ButterKnife.bind(this, rootView);
         callback = new ListOptionsCallback(this);
 
         return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override

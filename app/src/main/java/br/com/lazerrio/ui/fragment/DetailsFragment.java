@@ -21,24 +21,32 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import br.com.lazerrio.R;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class DetailsFragment extends Fragment implements com.google.android.gms.maps.OnMapReadyCallback {
 
+    @BindView(R.id.photo)
     ImageView photo;
-    TextView description, name;
+
+    @BindView(R.id.description)
+    TextView description;
+
+    @BindView(R.id.description)
+    TextView name;
+
+    private Unbinder unbinder;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_details, container, false);
 
-        description = rootView.findViewById(R.id.description);
+        unbinder = ButterKnife.bind(this, rootView);
+
         description.setText(getArguments().getString("desc"));
-
-        name = rootView.findViewById(R.id.name);
         name.setText(getArguments().getString("name"));
-
-        photo = rootView.findViewById(R.id.photo);
 
         String urlPhoto = getArguments().getString("photo");
         if (urlPhoto == null || urlPhoto.isEmpty()) {
@@ -51,6 +59,12 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         mapFragment.getMapAsync(this);
 
         return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @SuppressLint("MissingPermission")

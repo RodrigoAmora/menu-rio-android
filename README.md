@@ -10,6 +10,7 @@ The project use as dependencies:
 - GoogleMapsAPI;
 - Retrofit 2;
 - Dagger 2;
+- ButterKnife;
 - CircleViewImage;
 - Picasso;
 
