@@ -137,7 +137,7 @@ public class ListFragment extends Fragment implements Delegate {
             public void onItemClick(Option option) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("option", option);
-                
+
                 DetailsFragment detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(bundle);
 
