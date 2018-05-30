@@ -79,41 +79,63 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         Bundle bundle = new Bundle();
 
-        if (id == R.id.nav_beach) {
-            bundle.putString("option", "beach");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_hotel) {
-            bundle.putString("option", "hotel");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_leisure) {
-            bundle.putString("option", "leisure");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_movie) {
-            bundle.putString("option", "movie");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_museum) {
-            bundle.putString("option", "museum");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_restaurant) {
-            bundle.putString("option", "restaurant");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_shopping) {
-            bundle.putString("option", "shopping");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_sport) {
-            bundle.putString("option", "sport");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_theater) {
-            bundle.putString("option", "theater");
-            changeFragment(ListFragment.class, bundle);
-        } else if (id == R.id.nav_share) {
-            String shareText = getString(R.string.download_the_app)+"\n"
-                    +getString(R.string.link_app);
-            ShareUtil.directShare(this, getString(R.string.share), shareText);
-        } else if (id == R.id.nav_about) {
-            changeFragment(AboutFragment.class, bundle);
-        }
+        switch (id) {
+            case R.id.nav_about:
+                changeFragment(AboutFragment.class, bundle);
+                break;
 
+            case R.id.nav_beach:
+                bundle.putString("option", "beach");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_hotel:
+                bundle.putString("option", "beach");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_leisure:
+                bundle.putString("option", "leisure");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_movie:
+                bundle.putString("option", "movie");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_museum:
+                bundle.putString("option", "museum");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_restaurant:
+                bundle.putString("option", "restaurant");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_share:
+                String shareText = getString(R.string.download_the_app)+"\n"
+                        +getString(R.string.link_app);
+                ShareUtil.directShare(this, getString(R.string.share), shareText);
+                break;
+
+            case R.id.nav_shopping:
+                bundle.putString("option", "shopping");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_sport:
+                bundle.putString("option", "sport");
+                changeFragment(ListFragment.class, bundle);
+                break;
+
+            case R.id.nav_theater:
+                bundle.putString("option", "theater");
+                changeFragment(ListFragment.class, bundle);
+                break;
+        }
+        
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
