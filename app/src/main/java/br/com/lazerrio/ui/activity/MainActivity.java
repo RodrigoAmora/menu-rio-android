@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.ui.fragment.AboutFragment;
-import br.com.lazerrio.ui.fragment.ListFragment;
+import br.com.lazerrio.ui.fragment.ListOptionsFragment;
 import br.com.lazerrio.util.FragmentUtil;
 import br.com.lazerrio.util.PermissionUtil;
 import br.com.lazerrio.util.ShareUtil;
@@ -86,56 +86,56 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_beach:
                 bundle.putString("option", "beach");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_hotel:
                 bundle.putString("option", "beach");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_leisure:
                 bundle.putString("option", "leisure");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_movie:
                 bundle.putString("option", "movie");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_museum:
                 bundle.putString("option", "museum");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_restaurant:
                 bundle.putString("option", "restaurant");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_share:
                 String shareText = getString(R.string.download_the_app)+"\n"
-                        +getString(R.string.link_app);
+                                    +getString(R.string.link_app);
                 ShareUtil.directShare(this, getString(R.string.share), shareText);
                 break;
 
             case R.id.nav_shopping:
                 bundle.putString("option", "shopping");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_sport:
                 bundle.putString("option", "sport");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
             case R.id.nav_theater:
                 bundle.putString("option", "theater");
-                changeFragment(ListFragment.class, bundle);
+                changeFragment(ListOptionsFragment.class, bundle);
                 break;
         }
-        
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 

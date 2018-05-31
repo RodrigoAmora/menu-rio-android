@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-public class ListFragment extends Fragment implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
+public class ListOptionsFragment extends Fragment implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
 
     @BindView(R.id.recyler_view)
     RecyclerView recyclerView;
