@@ -15,6 +15,7 @@
     <string name="error_couldnt_was_possible_get_options">Não foi possível pesquisar as opções</string>
 
     <string name="beaches">Praias</string>
+    <string name="search_by_name">Buscar por nome:</string>
     <string name="created_by">Criado por</string>
     <string name="created_by_rodrigo_amora">Criado por Rodrigo Amora</string>
     <string name="communicate">Comunicação</string>
@@ -31,6 +32,7 @@
     <string name="name">Nome:</string>
     <string name="restaurants">Restaurantes</string>
     <string name="theaters">Teatros</string>
+    <string name="search">Pesquisar</string>
     <string name="site">Site:</string>
     <string name="site2">Site: www.rodrigoamora.com.br</string>
     <string name="share">Compartilhar</string>

@@ -15,6 +15,7 @@
     <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
 
     <string name="beaches">Beaches</string>
+    <string name="search_by_name">Search by name:</string>
     <string name="created_by">Created by</string>
     <string name="created_by_rodrigo_amora">Created by Rodrigo Amora</string>
     <string name="communicate">Communicate</string>
@@ -31,6 +32,7 @@
     <string name="name">Name:</string>
     <string name="restaurants">Restaurants</string>
     <string name="theaters">Theaters</string>
+    <string name="search">Search</string>
     <string name="site">Site:</string>
     <string name="site2">Site: www.rodrigoamora.com.br</string>
     <string name="share">Share</string>

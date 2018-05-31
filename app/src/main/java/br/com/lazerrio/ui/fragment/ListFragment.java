@@ -3,14 +3,19 @@ package br.com.lazerrio.ui.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-public class ListFragment extends Fragment implements Delegate {
+public class ListFragment extends Fragment implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
 
     @BindView(R.id.recyler_view)
     RecyclerView recyclerView;
@@ -45,6 +50,12 @@ public class ListFragment extends Fragment implements Delegate {
     @Inject
     ListOpitonsService service;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -52,8 +63,6 @@ public class ListFragment extends Fragment implements Delegate {
 
         unbinder = ButterKnife.bind(this, rootView);
         callback = new ListOptionsCallback(this);
-
-        configureRecyclerView();
 
         return rootView;
     }
@@ -67,8 +76,50 @@ public class ListFragment extends Fragment implements Delegate {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        configureRecyclerView();
         getComponents();
         getListOptions();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        List<Option> resultQuery = new ArrayList();
+        for (Option option : optionList) {
+            if (option.getName().contains(query)) {
+                resultQuery.add(option);
+            }
+        }
+        populateRecyclerView(resultQuery);
+        return false;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_option, menu);
+
+        android.support.v7.widget.SearchView mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        mSearchView.setOnCloseListener(this);
+        mSearchView.setOnQueryTextListener(this);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        List<Option> resultQuery = new ArrayList();
+        for (Option option : optionList) {
+            if (option.getName().contains(newText)) {
+                resultQuery.add(option);
+            }
+        }
+        populateRecyclerView(resultQuery);
+        return false;
+    }
+
+    @Override
+    public boolean onClose() {
+        populateRecyclerView(optionList);
+        return false;
     }
 
     @Override
@@ -81,15 +132,7 @@ public class ListFragment extends Fragment implements Delegate {
     public void success() {
         ProgressDiaologUtil.dimissProgressDialog();
         optionList = callback.getOptions();
-        populateRecyclerView();
-    }
-
-    private void configureRecyclerView() {
-        LinearLayoutManager linearLayout = new LinearLayoutManager(getActivity());
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setLayoutManager(linearLayout);
+        populateRecyclerView(optionList);
     }
 
     private void getComponents() {
@@ -129,7 +172,15 @@ public class ListFragment extends Fragment implements Delegate {
         }
     }
 
-    private void populateRecyclerView() {
+    private void configureRecyclerView() {
+        LinearLayoutManager linearLayout = new LinearLayoutManager(getActivity());
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutManager(linearLayout);
+    }
+
+    private void populateRecyclerView(List<Option> optionList) {
         OptionAdapter adapter = new OptionAdapter(getActivity(), optionList);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener() {
