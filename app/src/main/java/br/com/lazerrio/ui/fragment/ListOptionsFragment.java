@@ -86,6 +86,7 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
         inflater.inflate(R.menu.search_option, menu);
 
         android.support.v7.widget.SearchView mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        mSearchView.setQueryHint(getString(R.string.search_by_name));
         mSearchView.setOnCloseListener(this);
         mSearchView.setOnQueryTextListener(this);
 
@@ -196,5 +197,5 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
         }
         return resultQuery;
     }
-    
+
 }
