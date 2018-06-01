@@ -191,7 +191,7 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
     private List<Option> filteroptions(String text) {
         List<Option> resultQuery = new ArrayList();
         for (Option option : optionList) {
-            if (option.getName().contains(text)) {
+            if (option.getName().toLowerCase().contains(text.toLowerCase())) {
                 resultQuery.add(option);
             }
         }
