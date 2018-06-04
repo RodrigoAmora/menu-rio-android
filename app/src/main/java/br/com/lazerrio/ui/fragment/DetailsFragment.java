@@ -39,6 +39,8 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
     private Unbinder unbinder;
 
+    private Option option;
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
         unbinder = ButterKnife.bind(this, rootView);
 
-        Option option = (Option) getArguments().getSerializable("option");
+        option = (Option) getArguments().getSerializable("option");
 
         description.setText(option.getDescription());
         name.setText(option.getName());
@@ -75,7 +77,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     public void onMapReady(GoogleMap map) {
         map.setMyLocationEnabled(false);
 
-        LatLng latLng = new LatLng(getArguments().getDouble("lat"), getArguments().getDouble("lng"));
+        LatLng latLng = new LatLng(Double.parseDouble(option.getLat()), Double.parseDouble(option.getLng()));
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
         map.moveCamera(update);
         map.addMarker(new MarkerOptions()
