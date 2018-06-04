@@ -95,15 +95,19 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        List<Option> resultQuery = filteroptions(query);
-        populateRecyclerView(resultQuery);
+        List<Option> resultQuery = filterOptions(query);
+        if (resultQuery != null) {
+            populateRecyclerView(resultQuery);
+        }
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        List<Option> resultQuery = filteroptions(newText);
-        populateRecyclerView(resultQuery);
+        List<Option> resultQuery = filterOptions(newText);
+        if (resultQuery != null) {
+            populateRecyclerView(resultQuery);
+        }
         return false;
     }
 
@@ -188,14 +192,17 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
         });
     }
 
-    private List<Option> filteroptions(String text) {
-        List<Option> resultQuery = new ArrayList();
-        for (Option option : optionList) {
-            if (option.getName().toLowerCase().contains(text.toLowerCase())) {
-                resultQuery.add(option);
+    private List<Option> filterOptions(String text) {
+        if (optionList != null && !optionList.isEmpty()) {
+            List<Option> resultQuery = new ArrayList();
+            for (Option option : optionList) {
+                if (option.getName().toLowerCase().contains(text.toLowerCase())) {
+                    resultQuery.add(option);
+                }
             }
+            return resultQuery;
         }
-        return resultQuery;
+        return null;
     }
 
 }
