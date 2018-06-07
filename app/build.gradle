@@ -26,6 +26,11 @@ android {
             buildConfigField "String", "BASE_URL_LAZER_RIO_API", "\"http://rodrigoamora.com.br/LazerRio/rest/\""
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
