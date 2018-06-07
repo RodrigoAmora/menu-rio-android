@@ -137,28 +137,46 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
     }
 
     private void getListOptions() {
-        String option = getArguments().getString("option");
         if (NetworkUtil.checkConnection(getActivity())) {
+            String option = getArguments().getString("option");
             ProgressDiaologUtil.showProgressDiaolg(getActivity(), "", getString(R.string.wait), false);
 
-            if (option.equals("beach")) {
-                call = service.listAllBeahes();
-            } else if (option.equals("hotel")) {
-                call = service.listAllHotels();
-            } else if (option.equals("leisure")) {
-                call = service.listAllLeisures();
-            } else if (option.equals("movie")) {
-                call = service.listAllMovie();
-            } else if (option.equals("museum")) {
-                call = service.listAllMuseum();
-            } else if (option.equals("restaurant")) {
-                call = service.listAllRestaurants();
-            } else if (option.equals("shopping")) {
-                call = service.listAllShoppings();
-            } else if (option.equals("sport")) {
-                call = service.listAllSports();
-            } else if (option.equals("theater")) {
-                call = service.listAllTeathers();
+            switch (option) {
+                case "beach":
+                    call = service.listAllBeahes();
+                    break;
+
+                case "hotel":
+                    call = service.listAllHotels();
+                    break;
+
+                case "leisure":
+                    call = service.listAllLeisures();
+                    break;
+
+                case "movie":
+                    call = service.listAllMovie();
+                    break;
+
+                case "museum":
+                    call = service.listAllMuseum();
+                    break;
+
+                case "restaurant":
+                    call = service.listAllRestaurants();
+                    break;
+
+                case "shopping":
+                    call = service.listAllShoppings();
+                    break;
+
+                case "sport":
+                    call = service.listAllSports();
+                    break;
+
+                case "theater":
+                    call = service.listAllTeathers();
+                    break;
             }
 
             call.enqueue(callback);

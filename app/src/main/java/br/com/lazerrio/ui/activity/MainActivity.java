@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_hotel:
-                bundle.putString("option", "beach");
+                bundle.putString("option", "hotel");
                 changeFragment(ListOptionsFragment.class, bundle);
                 break;
 
