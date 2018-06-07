@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="58dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,4 +17,21 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_list_all_options"
+        android:layout_margin="15dp"
+        android:src="@drawable/ic_refresh"
+        app:layout_anchor="@id/fab_list_options_nearby_to_me"
+        android:layout_gravity="top|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_list_options_nearby_to_me"
+        android:layout_margin="15dp"
+        android:src="@drawable/ic_location"
+        android:layout_gravity="end|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.design.widget.CoordinatorLayout>

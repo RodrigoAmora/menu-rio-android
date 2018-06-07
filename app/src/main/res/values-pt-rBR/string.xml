@@ -10,7 +10,7 @@
     <string name="action_settings">Configurações</string>
 
     <string name="alert_no_internet">Sem internet!</string>
-    <string name="alert_gps_disables">GPS desativado!</string>
+    <string name="alert_gps_disabled">GPS desativado!</string>
 
     <string name="error_couldnt_was_possible_get_options">Não foi possível pesquisar as opções</string>
 

@@ -1,8 +1,14 @@
 package br.com.lazerrio.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,17 +35,25 @@ import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.adapter.OptionAdapter;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
+import br.com.lazerrio.util.GPSUtil;
 import br.com.lazerrio.util.NetworkUtil;
 import br.com.lazerrio.util.ProgressDiaologUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-public class ListOptionsFragment extends Fragment implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
+public class ListOptionsFragment extends Fragment implements LocationListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
 
     @BindView(R.id.recyler_view)
     RecyclerView recyclerView;
+
+    @BindView(R.id.fab_list_options_nearby_to_me)
+    FloatingActionButton fabListOptionsNextToMe;
+
+    @BindView(R.id.fab_list_all_options)
+    FloatingActionButton fabListAllOptions;
 
     private Call<List<Option>> call;
     private List<Option> optionList;
@@ -94,6 +108,26 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
     }
 
     @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
     public boolean onQueryTextSubmit(String query) {
         List<Option> resultQuery = filterOptions(query);
         if (resultQuery != null) {
@@ -113,7 +147,6 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
 
     @Override
     public boolean onClose() {
-        populateRecyclerView(optionList);
         return false;
     }
 
@@ -220,6 +253,51 @@ public class ListOptionsFragment extends Fragment implements SearchView.OnQueryT
             }
             return resultQuery;
         }
+        return null;
+    }
+
+    @OnClick(R.id.fab_list_all_options)
+    public void listAllOptions() {
+        populateRecyclerView(optionList);
+    }
+
+    @OnClick(R.id.fab_list_options_nearby_to_me)
+    public void filterOptionsNearby() {
+        List<Option> optionsNearby = new ArrayList();
+
+        for (Option option : optionList) {
+            Double lat = Double.parseDouble(option.getLat());
+            Double lng = Double.parseDouble(option.getLng());
+
+            Location locationOption = new Location(Context.LOCATION_SERVICE);
+            locationOption.setLatitude(lat);
+            locationOption.setLongitude(lng);
+
+            Location myLocation = getLocation(getActivity());
+            Float distance = myLocation.distanceTo(locationOption);
+
+            if (distance <= 3000) {
+                optionsNearby.add(option);
+            }
+        }
+
+        populateRecyclerView(optionsNearby);
+    }
+
+    @SuppressLint("MissingPermission")
+    public Location getLocation(Context context) {
+        if (GPSUtil.gpsIsEnable(getActivity())) {
+            LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+
+            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (location != null) {
+                return location;
+            }
+
+            return null;
+        }
+        Toast.makeText(getActivity(), getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
         return null;
     }
 
