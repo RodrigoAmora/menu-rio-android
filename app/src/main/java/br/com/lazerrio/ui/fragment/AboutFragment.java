@@ -10,25 +10,37 @@ import android.widget.TextView;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.util.PackageInfoUtil;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class AboutFragment extends Fragment {
 
-    private TextView versiom;
+    @BindView(R.id.version)
+    TextView version;
+
+    private Unbinder unbinder;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
 
-        versiom = rootView.findViewById(R.id.versiom);
+        unbinder = ButterKnife.bind(this, rootView);
 
         return rootView;
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        versiom.setText(PackageInfoUtil.getVersionName(getActivity()));
+        version.setText(PackageInfoUtil.getVersionName(getActivity()));
     }
 
 }
