@@ -13,6 +13,10 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        createComponents();
+    }
+
+    private void createComponents() {
         listOptionsComponent = DaggerListOptionsComponent.builder()
                 .listOptionsModule(new ListOptionsModule(this))
                 .build();

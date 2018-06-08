@@ -35,6 +35,7 @@ import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.adapter.OptionAdapter;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
+import br.com.lazerrio.util.FragmentUtil;
 import br.com.lazerrio.util.GPSUtil;
 import br.com.lazerrio.util.NetworkUtil;
 import br.com.lazerrio.util.ProgressDiaologUtil;
@@ -82,17 +83,17 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         configureRecyclerView();
         getComponents();
         getListOptions();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override
@@ -108,29 +109,21 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     }
 
     @Override
-    public void onLocationChanged(Location location) {
-
-    }
+    public void onLocationChanged(Location location) {}
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
 
     @Override
-    public void onProviderEnabled(String provider) {
-
-    }
+    public void onProviderEnabled(String provider) {}
 
     @Override
-    public void onProviderDisabled(String provider) {
-
-    }
+    public void onProviderDisabled(String provider) {}
 
     @Override
     public boolean onQueryTextSubmit(String query) {
         List<Option> resultQuery = filterOptions(query);
-        if (resultQuery != null) {
+        if (resultQuery != null && !resultQuery.isEmpty()) {
             populateRecyclerView(resultQuery);
         }
         return false;
@@ -139,7 +132,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     @Override
     public boolean onQueryTextChange(String newText) {
         List<Option> resultQuery = filterOptions(newText);
-        if (resultQuery != null) {
+        if (resultQuery != null && !resultQuery.isEmpty()) {
             populateRecyclerView(resultQuery);
         }
         return false;
@@ -235,10 +228,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("option", option);
 
-                DetailsFragment detailsFragment = new DetailsFragment();
-                detailsFragment.setArguments(bundle);
-
-                getFragmentManager().beginTransaction().replace(R.id.conatiner, detailsFragment).commit();
+                FragmentUtil.changeFragment(R.id.conatiner, DetailsFragment.class, getFragmentManager(), false, bundle);
             }
         });
     }
@@ -274,7 +264,11 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             locationOption.setLongitude(lng);
 
             Location myLocation = getLocation(getActivity());
-            Float distance = myLocation.distanceTo(locationOption);
+            Float distance = 0f;
+
+            if (myLocation != null) {
+                distance = myLocation.distanceTo(locationOption);
+            }
 
             if (distance <= 3000) {
                 optionsNearby.add(option);

@@ -84,7 +84,6 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
                 .title(getArguments().getString("name"))
                 //.snippet(getArguments().getString("desc"))
                 .position(latLng));
-
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 
