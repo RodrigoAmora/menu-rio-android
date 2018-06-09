@@ -75,8 +75,6 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap map) {
-        map.setMyLocationEnabled(false);
-
         LatLng latLng = new LatLng(Double.parseDouble(option.getLat()), Double.parseDouble(option.getLng()));
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
         map.moveCamera(update);
@@ -84,6 +82,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
                 .title(getArguments().getString("name"))
                 //.snippet(getArguments().getString("desc"))
                 .position(latLng));
+        map.setMyLocationEnabled(false);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 
