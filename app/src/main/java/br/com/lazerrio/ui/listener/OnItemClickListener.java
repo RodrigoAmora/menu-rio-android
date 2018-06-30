@@ -2,8 +2,8 @@ package br.com.lazerrio.ui.listener;
 
 import br.com.lazerrio.model.Option;
 
-public interface OnItemClickListener {
+public interface OnItemClickListener<T> {
 
-    public void onItemClick(Option option);
+    void onItemClick(T t);
 
 }
