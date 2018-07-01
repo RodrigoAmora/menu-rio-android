@@ -30,7 +30,7 @@ import br.com.lazerrio.R;
 import br.com.lazerrio.application.MyApplication;
 import br.com.lazerrio.callback.ListOptionsCallback;
 import br.com.lazerrio.component.ListOptionsComponent;
-import br.com.lazerrio.delegate.Delegate;
+import br.com.lazerrio.delegate.CallbackDelegate;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.activity.MainActivity;
@@ -46,7 +46,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-public class ListOptionsFragment extends Fragment implements LocationListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener, Delegate {
+public class ListOptionsFragment extends Fragment implements LocationListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener, CallbackDelegate<List<Option>> {
 
     @BindView(R.id.recyler_view)
     RecyclerView recyclerView;
@@ -61,9 +61,9 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private List<Option> optionList;
     private Unbinder unbinder;
 
-    ListOptionsCallback callback;
     @Inject
     ListOpitonsService service;
+    ListOptionsCallback callback;
     MainActivity activity;
 
     @Override
@@ -152,10 +152,14 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     }
 
     @Override
-    public void success() {
+    public void success(List<Option> options) {
         ProgressDiaologUtil.dimissProgressDialog();
-        optionList = callback.getOptions();
-        populateRecyclerView(optionList);
+        optionList = options;
+        if (optionList.isEmpty()) {
+            Toast.makeText(activity, getString(R.string.no_result), Toast.LENGTH_LONG).show();
+        } else {
+            populateRecyclerView(options);
+        }
     }
 
     private void getComponents() {
@@ -276,7 +280,11 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             }
         }
 
-        populateRecyclerView(optionsNearby);
+        if (optionsNearby.isEmpty()) {
+            Toast.makeText(activity, getString(R.string.no_options_nearby), Toast.LENGTH_LONG).show();
+        } else {
+            populateRecyclerView(optionsNearby);
+        }
     }
 
     @SuppressLint("MissingPermission")
@@ -292,6 +300,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
             return null;
         }
+
         Toast.makeText(activity, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
         return null;
     }
