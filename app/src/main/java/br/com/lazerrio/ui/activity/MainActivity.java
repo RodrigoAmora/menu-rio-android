@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import br.com.lazerrio.R;
 import br.com.lazerrio.ui.fragment.AboutFragment;
 import br.com.lazerrio.ui.fragment.ListOptionsFragment;
+import br.com.lazerrio.ui.fragment.MainFragment;
 import br.com.lazerrio.util.FragmentUtil;
 import br.com.lazerrio.util.PermissionUtil;
 import br.com.lazerrio.util.ShareUtil;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         createToolbarAndNavigationView();
+        FragmentUtil.changeFragment(R.id.conatiner, MainFragment.class, getSupportFragmentManager(), false, null);
     }
 
     @Override
