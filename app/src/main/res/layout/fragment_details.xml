@@ -41,7 +41,7 @@
             android:id="@+id/map_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.google.android.gms.maps.MapFragment" />
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

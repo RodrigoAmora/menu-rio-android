@@ -1,9 +1,9 @@
 package br.com.lazerrio.ui.activity;
 
-import android.app.Fragment;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_about) {
-            FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getFragmentManager(), false, null);
+            FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getSupportFragmentManager(), false, null);
         }
 
         return super.onOptionsItemSelected(item);
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void changeFragment(Class<? extends Fragment> fragmentClass, Bundle bundle) {
-        FragmentUtil.changeFragment(R.id.conatiner, fragmentClass, getFragmentManager(), false, bundle);
+        FragmentUtil.changeFragment(R.id.conatiner, fragmentClass, getSupportFragmentManager(), false, bundle);
     }
 
 }

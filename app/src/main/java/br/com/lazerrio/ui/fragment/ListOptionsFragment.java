@@ -1,7 +1,6 @@
 package br.com.lazerrio.ui.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
@@ -9,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -233,7 +233,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             public void onItemClick(Option option) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("option", option);
-                FragmentUtil.changeFragment(R.id.conatiner, DetailsFragment.class, getFragmentManager(), false, bundle);
+                FragmentUtil.changeFragment(R.id.conatiner, DetailsFragment.class, activity.getSupportFragmentManager(), false, bundle);
             }
         });
     }
