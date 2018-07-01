@@ -1,6 +1,7 @@
 package br.com.lazerrio.ui.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,15 +14,11 @@ import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
 import br.com.lazerrio.ui.viewholder.OptionViewHolder;
-import butterknife.Unbinder;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
 
-    private Activity context;
+    private Context context;
     private List<Option> optionList;
-
-    private Unbinder unbinder;
-
     private OnItemClickListener onItemClickListener;
 
     public OptionAdapter(Activity context, List<Option> optionList) {

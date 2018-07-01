@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -219,6 +220,9 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     private void configureRecyclerView() {
         LinearLayoutManager linearLayout = new LinearLayoutManager(activity);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL);
+
+        recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(linearLayout);

@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 public class Option implements Serializable {
 
-    private String id, name, description, photo;
+    private Long id;
+    private String name, description, photo;
     private String address,neighborhood, number, lat, lng;
     private String email, phone1, site;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
