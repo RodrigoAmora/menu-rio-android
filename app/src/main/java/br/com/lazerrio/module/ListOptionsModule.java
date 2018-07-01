@@ -1,12 +1,11 @@
 package br.com.lazerrio.module;
 
-import br.com.lazerrio.BuildConfig;
 import br.com.lazerrio.application.MyApplication;
+import br.com.lazerrio.factory.RetrofitFactory;
 import br.com.lazerrio.service.ListOpitonsService;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class ListOptionsModule {
@@ -19,11 +18,7 @@ public class ListOptionsModule {
 
     @Provides
     public ListOpitonsService getListOptionsService() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL_LAZER_RIO_API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
+        Retrofit retrofit = RetrofitFactory.createRetrofit();
         ListOpitonsService service = retrofit.create(ListOpitonsService.class);
         return service;
     }
