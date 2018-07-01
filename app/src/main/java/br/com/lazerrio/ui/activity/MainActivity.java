@@ -65,9 +65,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_about) {
+        if (id == R.id.action_about) {
             FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getSupportFragmentManager(), false, null);
         }
 
