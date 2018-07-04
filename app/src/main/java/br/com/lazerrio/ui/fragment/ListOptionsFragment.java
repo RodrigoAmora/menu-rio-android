@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,7 +41,6 @@ import br.com.lazerrio.ui.listener.OnItemClickListener;
 import br.com.lazerrio.util.FragmentUtil;
 import br.com.lazerrio.util.GPSUtil;
 import br.com.lazerrio.util.NetworkUtil;
-import br.com.lazerrio.util.ProgressDiaologUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,6 +57,9 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     @BindView(R.id.fab_list_all_options)
     FloatingActionButton fabListAllOptions;
+
+    @BindView(R.id.progress_bar)
+    LinearLayout progressBar;
 
     private Call<List<Option>> call;
     private List<Option> optionList;
@@ -148,13 +151,13 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     @Override
     public void error() {
-        ProgressDiaologUtil.dimissProgressDialog();
+        progressBar.setVisibility(View.GONE);
         Toast.makeText(activity, getString(R.string.error_couldnt_was_possible_get_options), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void success(List<Option> options) {
-        ProgressDiaologUtil.dimissProgressDialog();
+        progressBar.setVisibility(View.GONE);
         optionList = options;
         if (optionList.isEmpty()) {
             Toast.makeText(activity, getString(R.string.no_result), Toast.LENGTH_LONG).show();
@@ -172,8 +175,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private void getListOptions() {
         if (NetworkUtil.checkConnection(activity)) {
             String option = getArguments().getString("option");
-            ProgressDiaologUtil.showProgressDiaolg(activity, "", getString(R.string.wait), false);
-
+            progressBar.setVisibility(View.VISIBLE);
             switch (option) {
                 case "beach":
                     call = service.listAllBeahes();
