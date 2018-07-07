@@ -19,7 +19,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
 
     private Context context;
     private List<Option> optionList;
-    private OnItemClickListener onItemClickListener;
+    private OnItemClickListener listener;
 
     public OptionAdapter(Activity context, List<Option> optionList) {
         this.context = context;
@@ -40,7 +40,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
         holder.getViewDetails().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickListener.onItemClick(optionList.get(position));
+                listener.onItemClick(optionList.get(position));
             }
         });
     }
@@ -50,8 +50,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
         return optionList.size();
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
+    public void setListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 }

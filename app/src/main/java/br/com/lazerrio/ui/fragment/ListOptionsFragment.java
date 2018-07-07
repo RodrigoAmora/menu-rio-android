@@ -234,7 +234,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private void populateRecyclerView(List<Option> optionList) {
         OptionAdapter adapter = new OptionAdapter(activity, optionList);
         recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(new OnItemClickListener<Option>() {
+        adapter.setListener(new OnItemClickListener<Option>() {
             @Override
             public void onItemClick(Option option) {
                 Bundle bundle = new Bundle();

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import br.com.lazerrio.R;
+import br.com.lazerrio.ui.activity.MainActivity;
 import br.com.lazerrio.util.PackageInfoUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +41,8 @@ public class AboutFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        version.setText(PackageInfoUtil.getVersionName(getActivity()));
+        MainActivity activity = (MainActivity) getActivity();
+        version.setText(PackageInfoUtil.getVersionName(activity));
     }
 
 }
