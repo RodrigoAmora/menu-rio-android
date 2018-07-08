@@ -33,7 +33,7 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
         View view = inflater.inflate(R.layout.address_info_window_adapter, null);
 
         tvName = view.findViewById(R.id.address);
-        tvName.setText(option.getAddress());
+        tvName.setText(option.getName());
 
         String address = option.getAddress()+", "
                             +option.getNumber()+" - "

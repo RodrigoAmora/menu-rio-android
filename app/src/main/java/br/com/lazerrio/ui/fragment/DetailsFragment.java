@@ -56,9 +56,9 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
         String urlPhoto = option.getPhoto();
         if (urlPhoto == null || urlPhoto.isEmpty()) {
-            Picasso.get().load(R.drawable.no_photo).placeholder(R.mipmap.ic_launcher).into(photo);
+            Picasso.get().load(R.drawable.no_photo).into(photo);
         } else {
-            Picasso.get().load(urlPhoto).placeholder(R.mipmap.ic_launcher).into(photo);
+            Picasso.get().load(urlPhoto).placeholder(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).into(photo);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
