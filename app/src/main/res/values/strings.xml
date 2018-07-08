@@ -14,6 +14,7 @@
 
     <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
 
+    <string name="address">Address</string>
     <string name="beaches">Beaches</string>
     <string name="search_by_name">Search by name...</string>
     <string name="created_by">Created by</string>

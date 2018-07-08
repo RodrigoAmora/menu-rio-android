@@ -22,6 +22,8 @@ import com.squareup.picasso.Picasso;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.model.Option;
+import br.com.lazerrio.ui.activity.MainActivity;
+import br.com.lazerrio.ui.adapter.AddressInfoWindowCustom;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -30,13 +32,12 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
     @BindView(R.id.photo)
     ImageView photo;
-
     @BindView(R.id.description)
     TextView description;
-
     @BindView(R.id.name)
     TextView name;
 
+    MainActivity activity;
     private Unbinder unbinder;
 
     private Option option;
@@ -67,6 +68,12 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        activity = (MainActivity) getActivity();
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
@@ -84,6 +91,9 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
                 .position(latLng));
         map.setMyLocationEnabled(false);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        AddressInfoWindowCustom infoWindowCustom = new AddressInfoWindowCustom(activity, option);
+        map.setInfoWindowAdapter(infoWindowCustom);
     }
 
 }
