@@ -54,7 +54,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         description.setText(option.getDescription());
         name.setText(option.getName());
 
-        String urlPhoto = option.getDescription();
+        String urlPhoto = option.getPhoto();
         if (urlPhoto == null || urlPhoto.isEmpty()) {
             Picasso.get().load(R.drawable.no_photo).placeholder(R.mipmap.ic_launcher).into(photo);
         } else {

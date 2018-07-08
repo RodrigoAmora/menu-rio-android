@@ -16,15 +16,15 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
     private Context context;
     private LayoutInflater inflater;
 
-    private Option machineShop;
+    private Option option;
 
-    TextView address;
+    TextView tvAddress;
 
-    TextView name;
+    TextView tvName;
 
-    public AddressInfoWindowCustom(Context context, Option machineShop) {
+    public AddressInfoWindowCustom(Context context, Option option) {
         this.context = context;
-        this.machineShop = machineShop;
+        this.option = option;
     }
 
     @Override
@@ -32,11 +32,15 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.address_info_window_adapter, null);
 
-        name = view.findViewById(R.id.address);
-        name.setText(machineShop.getAddress());
+        tvName = view.findViewById(R.id.address);
+        tvName.setText(option.getAddress());
 
-        address = view.findViewById(R.id.name);
-        address.setText(machineShop.getName());
+        String address = option.getAddress()+", "
+                            +option.getNumber()+" - "
+                            +option.getNeighborhood();
+
+        tvAddress = view.findViewById(R.id.name);
+        tvAddress.setText(address);
 
         return view;
     }
