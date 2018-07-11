@@ -18,9 +18,7 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
 
     private Option option;
 
-    TextView tvAddress;
-
-    TextView tvName;
+    TextView tvAddress, tvName;
 
     public AddressInfoWindowCustom(Context context, Option option) {
         this.context = context;
@@ -32,14 +30,14 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.address_info_window_adapter, null);
 
-        tvName = view.findViewById(R.id.address);
+        tvName = view.findViewById(R.id.name);
         tvName.setText(option.getName());
 
         String address = option.getAddress()+", "
                             +option.getNumber()+" - "
                             +option.getNeighborhood();
 
-        tvAddress = view.findViewById(R.id.name);
+        tvAddress = view.findViewById(R.id.address);
         tvAddress.setText(address);
 
         return view;
