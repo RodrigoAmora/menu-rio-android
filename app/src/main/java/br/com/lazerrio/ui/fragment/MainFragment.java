@@ -63,47 +63,38 @@ public class MainFragment extends Fragment {
         switch (viewId) {
             case R.id.beach:
                 bundle.putString("option", "beach");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.hotel:
                 bundle.putString("option", "hotel");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.leisure:
                 bundle.putString("option", "leisure");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.movie:
                 bundle.putString("option", "movie");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.museum:
                 bundle.putString("option", "museum");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.restaurant:
                 bundle.putString("option", "restaurant");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.shopping_mall:
                 bundle.putString("option", "shopping");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.sport:
                 bundle.putString("option", "sport");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
 
             case R.id.theater:
                 bundle.putString("option", "theater");
-//                FragmentUtil.changeFragment(R.id.conatiner, ListOptionsFragment.class, activity.getSupportFragmentManager(), false, bundle);
                 break;
         }
 
