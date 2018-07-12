@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         createToolbarAndNavigationView();
-        FragmentUtil.changeFragment(R.id.conatiner, MainFragment.class, getSupportFragmentManager(), false, null);
+        changeFragment(new MainFragment(), null);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
-            FragmentUtil.changeFragment(R.id.conatiner, AboutFragment.class, getSupportFragmentManager(), false, null);
+            changeFragment(new AboutFragment(), null);
         }
 
         return super.onOptionsItemSelected(item);
@@ -80,37 +80,37 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_about:
-                changeFragment(AboutFragment.class, bundle);
+                changeFragment(new AboutFragment(), bundle);
                 break;
 
             case R.id.nav_beach:
                 bundle.putString("option", "beach");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_hotel:
                 bundle.putString("option", "hotel");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_leisure:
                 bundle.putString("option", "leisure");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_movie:
                 bundle.putString("option", "movie");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_museum:
                 bundle.putString("option", "museum");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_restaurant:
                 bundle.putString("option", "restaurant");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_share:
@@ -121,17 +121,17 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_shopping:
                 bundle.putString("option", "shopping");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_sport:
                 bundle.putString("option", "sport");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
 
             case R.id.nav_theater:
                 bundle.putString("option", "theater");
-                changeFragment(ListOptionsFragment.class, bundle);
+                changeFragment(new ListOptionsFragment(), bundle);
                 break;
         }
 
@@ -162,8 +162,8 @@ public class MainActivity extends AppCompatActivity
         return resultAccessFineLocation == PackageManager.PERMISSION_GRANTED && resultAccessCoarseLocation == PackageManager.PERMISSION_GRANTED;
     }
 
-    private void changeFragment(Class<? extends Fragment> fragmentClass, Bundle bundle) {
-        FragmentUtil.changeFragment(R.id.conatiner, fragmentClass, getSupportFragmentManager(), false, bundle);
+    private void changeFragment(Fragment fragment, Bundle bundle) {
+        FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), false, bundle);
     }
 
 }
