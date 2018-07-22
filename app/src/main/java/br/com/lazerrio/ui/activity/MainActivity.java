@@ -1,6 +1,11 @@
 package br.com.lazerrio.ui.activity;
 
+import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,7 +18,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import br.com.lazerrio.R;
+import br.com.lazerrio.factory.ShortcutFactory;
 import br.com.lazerrio.ui.fragment.AboutFragment;
 import br.com.lazerrio.ui.fragment.ListOptionsFragment;
 import br.com.lazerrio.ui.fragment.MainFragment;
@@ -36,8 +44,21 @@ public class MainActivity extends AppCompatActivity
             PermissionUtil.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION});
         }
 
+        if (Build.VERSION.SDK_INT >= 25) {
+            createShorcut();
+        }
+
         createToolbarAndNavigationView();
-        changeFragment(new MainFragment(), null);
+
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            Bundle bundle = new Bundle();
+            String option = intent.getStringExtra("option");
+            bundle.putString("option", option);
+            changeFragment(new ListOptionsFragment(), bundle);
+        } else {
+            changeFragment(new MainFragment(), null);
+        }
     }
 
     @Override
@@ -164,6 +185,25 @@ public class MainActivity extends AppCompatActivity
 
     private void changeFragment(Fragment fragment, Bundle bundle) {
         FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), false, bundle);
+    }
+
+    @TargetApi(25)
+    private void createShorcut() {
+        ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
+
+        String shortLabels[] = {getString(R.string.leisure), getString(R.string.movies),
+                getString(R.string.restaurants), getString(R.string.shopping_mall), getString(R.string.sports)};
+
+        String disabledMessage[] = {getString(R.string.shortcut_info_leisures),
+                getString(R.string.shortcut_info_movies), getString(R.string.shortcut_info_restaurants), getString(R.string.shortcut_info_shopping_mall),
+                getString(R.string.shortcut_info_sport)};
+
+        String options[] = {"leisure", "movie", "restaurant", "shopping", "sport"};
+
+        Integer icons[] = {R.mipmap.opcoes, R.mipmap.cine, R.mipmap.chef, R.mipmap.shopping, R.mipmap.esportes};
+
+        List<ShortcutInfo> shortcutInfos = ShortcutFactory.createRetrofit(this, shortLabels, disabledMessage, options, icons);
+        shortcutManager.setDynamicShortcuts(shortcutInfos);
     }
 
 }

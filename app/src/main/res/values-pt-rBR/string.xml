@@ -14,6 +14,17 @@
 
     <string name="error_couldnt_was_possible_get_options">Não foi possível pesquisar as opções</string>
 
+    <!-- ShortcutInfo -->
+    <string name="shortcut_info_beaches">Listar todas as praias.</string>
+    <string name="shortcut_info_hotels">Listar todos os hotéis.</string>
+    <string name="shortcut_info_leisures">Listar todas as opções de lazer.</string>
+    <string name="shortcut_info_movies">Listar todos os cinemas.</string>
+    <string name="shortcut_info_museuns">Listar todos os museus.</string>
+    <string name="shortcut_info_restaurants">Listar todas os restaurantes.</string>
+    <string name="shortcut_info_shopping_mall">Listar todos os shopping.</string>
+    <string name="shortcut_info_sport">Listar todas as opções de espote.</string>
+    <string name="shortcut_info_theaters">Listar todos os teatros.</string>
+
     <string name="address">Endereço:</string>
     <string name="beaches">Praias</string>
     <string name="search_by_name">Buscar por nome...</string>

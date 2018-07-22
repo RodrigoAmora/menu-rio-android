@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="25">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutId="shortcut_name"
+        android:shortcutShortLabel="@string/name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass=".MainActivity"
+            android:targetPackage="br.com.lazerrio">
+            <extra
+                android:name="key"
+                android:value="value" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+</shortcuts>

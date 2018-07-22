@@ -14,6 +14,17 @@
 
     <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
 
+    <!-- ShortcutInfo -->
+    <string name="shortcut_info_beaches">List all beaches.</string>
+    <string name="shortcut_info_hotels">List all hotels.</string>
+    <string name="shortcut_info_leisures">List all leisure options.</string>
+    <string name="shortcut_info_movies">List all movies.</string>
+    <string name="shortcut_info_museuns">List all museuns.</string>
+    <string name="shortcut_info_restaurants">List all restaurants.</string>
+    <string name="shortcut_info_sport">List all sport options.</string>
+    <string name="shortcut_info_shopping_mall">List all shopping mall.</string>
+    <string name="shortcut_info_theaters">List all theaters.</string>
+
     <string name="address">Address</string>
     <string name="beaches">Beaches</string>
     <string name="search_by_name">Search by name...</string>
