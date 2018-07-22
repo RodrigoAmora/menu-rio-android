@@ -74,23 +74,21 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        callback = new ListOptionsCallback(this);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, container,	false);
-
         unbinder = ButterKnife.bind(this, rootView);
-        callback = new ListOptionsCallback(this);
-
         return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        activity = (MainActivity) getActivity();
+        getMaintActivity();
         configureRecyclerView();
         getComponents();
         getListOptions();
@@ -223,7 +221,6 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private void configureRecyclerView() {
         LinearLayoutManager linearLayout = new LinearLayoutManager(activity);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(activity, DividerItemDecoration.VERTICAL);
-
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -273,14 +270,12 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             Location locationOption = new Location(Context.LOCATION_SERVICE);
             locationOption.setLatitude(lat);
             locationOption.setLongitude(lng);
+            Location myLocation = getLocation(activity);
 
-            Location myLocation = getLocation(getActivity());
             Float distance = 0f;
-
             if (myLocation != null) {
                 distance = myLocation.distanceTo(locationOption);
             }
-
             if (distance <= 3000) {
                 optionsNearby.add(option);
             }
@@ -309,6 +304,11 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
         Toast.makeText(activity, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
         return null;
+    }
+
+    public MainActivity getMaintActivity() {
+        activity = (MainActivity) getActivity();
+        return activity;
     }
 
 }

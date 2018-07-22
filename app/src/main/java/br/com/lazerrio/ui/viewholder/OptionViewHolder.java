@@ -16,10 +16,8 @@ public class OptionViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.image)
     CircleImageView imageView;
-
     @BindView(R.id.name)
     TextView name;
-
     @BindView(R.id.view_details)
     TextView viewDetails;
 

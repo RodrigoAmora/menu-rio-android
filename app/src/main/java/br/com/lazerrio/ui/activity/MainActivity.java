@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createToolbarAndNavigationView();
 
         if (!checkPermission()) {
             PermissionUtil.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION});
@@ -47,8 +48,6 @@ public class MainActivity extends AppCompatActivity
         if (Build.VERSION.SDK_INT >= 25) {
             createShorcut();
         }
-
-        createToolbarAndNavigationView();
 
         Intent intent = getIntent();
         if (intent.getExtras() != null) {

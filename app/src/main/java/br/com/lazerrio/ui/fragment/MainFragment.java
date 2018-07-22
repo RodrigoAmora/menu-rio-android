@@ -41,9 +41,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container,	false);
-
         unbinder = ButterKnife.bind(this, rootView);
-
         return rootView;
     }
 
@@ -59,7 +57,6 @@ public class MainFragment extends Fragment {
         Bundle bundle = new Bundle();
 
         int viewId = view.getId();
-
         switch (viewId) {
             case R.id.beach:
                 bundle.putString("option", "beach");
