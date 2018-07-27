@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
             PermissionUtil.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION});
         }
 
-        if (Build.VERSION.SDK_INT >= 25) {
+        if (Build.VERSION.SDK_INT >= 26) {
             createShorcut();
         }
 
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity
         FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), false, bundle);
     }
 
-    @TargetApi(25)
+    @TargetApi(26)
     private void createShorcut() {
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 

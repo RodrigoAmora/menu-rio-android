@@ -14,7 +14,7 @@ import br.com.lazerrio.ui.activity.MainActivity;
 
 public class ShortcutFactory {
 
-    @TargetApi(25)
+    @TargetApi(26)
     public static List<ShortcutInfo> createRetrofit(Context context, String[] shortLabels, String[] disabledMessage, String[] options, Integer[] icons) {
         List<ShortcutInfo> shortcutInfos = new ArrayList();
         for (int i = 0; i < shortLabels.length; i++) {
