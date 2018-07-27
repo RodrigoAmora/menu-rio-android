@@ -32,7 +32,7 @@ import br.com.lazerrio.R;
 import br.com.lazerrio.application.MyApplication;
 import br.com.lazerrio.callback.ListOptionsCallback;
 import br.com.lazerrio.component.ListOptionsComponent;
-import br.com.lazerrio.delegate.CallbackDelegate;
+import br.com.lazerrio.delegate.OptionDelegate;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.activity.MainActivity;
@@ -47,7 +47,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-public class ListOptionsFragment extends Fragment implements LocationListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener, CallbackDelegate<List<Option>> {
+public class ListOptionsFragment extends Fragment implements LocationListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener, OptionDelegate<List<Option>> {
 
     @BindView(R.id.recyler_view)
     RecyclerView recyclerView;

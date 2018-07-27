@@ -2,7 +2,7 @@ package br.com.lazerrio.callback;
 
 import java.util.List;
 
-import br.com.lazerrio.delegate.CallbackDelegate;
+import br.com.lazerrio.delegate.OptionDelegate;
 import br.com.lazerrio.model.Option;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -10,10 +10,10 @@ import retrofit2.Response;
 
 public class ListOptionsCallback implements Callback<List<Option>> {
 
-    private CallbackDelegate callbackDelegate;
+    private OptionDelegate optionDelegate;
 
-    public ListOptionsCallback(CallbackDelegate callbackDelegate) {
-        this.callbackDelegate = callbackDelegate;
+    public ListOptionsCallback(OptionDelegate optionDelegate) {
+        this.optionDelegate = optionDelegate;
     }
 
     @Override
@@ -21,18 +21,18 @@ public class ListOptionsCallback implements Callback<List<Option>> {
         if (response.isSuccessful()) {
             List<Option> result = response.body();
             if (result != null) {
-                this.callbackDelegate.success(result);
+                this.optionDelegate.success(result);
             } else {
-                this.callbackDelegate.error();
+                this.optionDelegate.error();
             }
         } else {
-            this.callbackDelegate.error();
+            this.optionDelegate.error();
         }
     }
 
     @Override
     public void onFailure(Call<List<Option>> call, Throwable t) {
-        this.callbackDelegate.error();
+        this.optionDelegate.error();
     }
 
 }
