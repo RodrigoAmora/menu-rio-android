@@ -49,15 +49,15 @@ public class MainActivity extends AppCompatActivity
             createShorcut();
         }
 
-        Intent intent = getIntent();
-        if (intent.getExtras() != null) {
+        String option = getIntent().getStringExtra("option");
+        if (option != null && !option.isEmpty()) {
             Bundle bundle = new Bundle();
-            String option = intent.getStringExtra("option");
             bundle.putString("option", option);
             changeFragment(new ListOptionsFragment(), bundle);
         } else {
             changeFragment(new MainFragment(), null);
         }
+
     }
 
     @Override
