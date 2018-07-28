@@ -1,7 +1,6 @@
 package br.com.lazerrio.ui.activity;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
@@ -201,7 +200,7 @@ public class MainActivity extends AppCompatActivity
 
         Integer icons[] = {R.mipmap.opcoes, R.mipmap.cine, R.mipmap.chef, R.mipmap.shopping, R.mipmap.esportes};
 
-        List<ShortcutInfo> shortcutInfos = ShortcutFactory.createRetrofit(this, shortLabels, disabledMessage, options, icons);
+        List<ShortcutInfo> shortcutInfos = ShortcutFactory.createShortcutInfos(this, shortLabels, disabledMessage, options, icons);
         shortcutManager.setDynamicShortcuts(shortcutInfos);
     }
 

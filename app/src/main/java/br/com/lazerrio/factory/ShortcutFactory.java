@@ -9,13 +9,12 @@ import android.graphics.drawable.Icon;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.lazerrio.R;
 import br.com.lazerrio.ui.activity.MainActivity;
 
 public class ShortcutFactory {
 
     @TargetApi(26)
-    public static List<ShortcutInfo> createRetrofit(Context context, String[] shortLabels, String[] disabledMessage, String[] options, Integer[] icons) {
+    public static List<ShortcutInfo> createShortcutInfos(Context context, String[] shortLabels, String[] disabledMessage, String[] options, Integer[] icons) {
         List<ShortcutInfo> shortcutInfos = new ArrayList();
         for (int i = 0; i < shortLabels.length; i++) {
             Intent intentRestaurant = new Intent(context, MainActivity.class);
