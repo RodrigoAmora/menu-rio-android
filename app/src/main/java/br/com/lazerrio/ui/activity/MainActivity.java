@@ -48,15 +48,7 @@ public class MainActivity extends AppCompatActivity
             createShorcut();
         }
 
-        String option = getIntent().getStringExtra("option");
-        if (option != null && !option.isEmpty()) {
-            Bundle bundle = new Bundle();
-            bundle.putString("option", option);
-            changeFragment(new ListOptionsFragment(), bundle);
-        } else {
-            changeFragment(new MainFragment(), null);
-        }
-
+        checkOptionInIntent();
     }
 
     @Override
@@ -183,6 +175,17 @@ public class MainActivity extends AppCompatActivity
 
     private void changeFragment(Fragment fragment, Bundle bundle) {
         FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), false, bundle);
+    }
+
+    private void checkOptionInIntent() {
+        String option = getIntent().getStringExtra("option");
+        if (option != null && !option.isEmpty()) {
+            Bundle bundle = new Bundle();
+            bundle.putString("option", option);
+            changeFragment(new ListOptionsFragment(), bundle);
+        } else {
+            changeFragment(new MainFragment(), null);
+        }
     }
 
     @TargetApi(26)
