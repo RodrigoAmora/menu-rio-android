@@ -98,6 +98,9 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        if (call != null && !call.isCanceled()) {
+            call.cancel();
+        }
     }
 
     @Override
