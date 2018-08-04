@@ -46,9 +46,10 @@ public class MainActivity extends AppCompatActivity
 
         if (Build.VERSION.SDK_INT >= 26) {
             createShorcut();
+            checkOptionInIntent();
+        } else {
+            changeFragment(new MainFragment(), null);
         }
-
-        checkOptionInIntent();
     }
 
     @Override
