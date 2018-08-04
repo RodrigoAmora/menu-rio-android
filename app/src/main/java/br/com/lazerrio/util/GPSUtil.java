@@ -8,7 +8,11 @@ public class GPSUtil {
     public static boolean gpsIsEnable(Context context) {
         try {
             LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-            return locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            if (locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception e) {
             return false;
         }

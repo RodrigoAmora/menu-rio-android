@@ -80,7 +80,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_list, container,	false);
+        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
@@ -116,16 +116,20 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     }
 
     @Override
-    public void onLocationChanged(Location location) {}
+    public void onLocationChanged(Location location) {
+    }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {}
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
 
     @Override
-    public void onProviderEnabled(String provider) {}
+    public void onProviderEnabled(String provider) {
+    }
 
     @Override
-    public void onProviderDisabled(String provider) {}
+    public void onProviderDisabled(String provider) {
+    }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -265,35 +269,34 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     @OnClick(R.id.fab_list_options_nearby_to_me)
     public void filterOptionsNearby() {
         List<Option> optionsNearby = new ArrayList();
+        Location myLocation = getLocation(activity);
+        if (myLocation != null) {
+            for (Option option : optionList) {
+                Double lat = Double.parseDouble(option.getLat());
+                Double lng = Double.parseDouble(option.getLng());
 
-        for (Option option : optionList) {
-            Double lat = Double.parseDouble(option.getLat());
-            Double lng = Double.parseDouble(option.getLng());
+                Location locationOption = new Location(Context.LOCATION_SERVICE);
+                locationOption.setLatitude(lat);
+                locationOption.setLongitude(lng);
 
-            Location locationOption = new Location(Context.LOCATION_SERVICE);
-            locationOption.setLatitude(lat);
-            locationOption.setLongitude(lng);
-            Location myLocation = getLocation(activity);
-
-            Float distance = 0f;
-            if (myLocation != null) {
+                Float distance = 0f;
                 distance = myLocation.distanceTo(locationOption);
+                if (distance <= 3500) {
+                    optionsNearby.add(option);
+                }
             }
-            if (distance <= 3000) {
-                optionsNearby.add(option);
-            }
-        }
 
-        if (optionsNearby.isEmpty()) {
-            Toast.makeText(activity, getString(R.string.no_options_nearby), Toast.LENGTH_LONG).show();
-        } else {
-            populateRecyclerView(optionsNearby);
+            if (optionsNearby.isEmpty()) {
+                Toast.makeText(activity, getString(R.string.no_options_nearby), Toast.LENGTH_LONG).show();
+            } else {
+                populateRecyclerView(optionsNearby);
+            }
         }
     }
 
     @SuppressLint("MissingPermission")
     public Location getLocation(Context context) {
-        if (GPSUtil.gpsIsEnable(activity)) {
+        if (GPSUtil.gpsIsEnable(context)) {
             LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
@@ -305,7 +308,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             return null;
         }
 
-        Toast.makeText(activity, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
+        Toast.makeText(context, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
         return null;
     }
 
