@@ -34,7 +34,6 @@ android {
 }
 
 dependencies {
-    //implementation fileTree(dir: 'libs', include: ['*.jar'])
     //MATERIAL-DESIGN
     def materialDesignVersion = '27.1.1'
     implementation "com.android.support:appcompat-v7:$materialDesignVersion"
