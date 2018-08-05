@@ -31,13 +31,13 @@ import butterknife.Unbinder;
 public class DetailsFragment extends Fragment implements com.google.android.gms.maps.OnMapReadyCallback {
 
     @BindView(R.id.photo)
-    ImageView photo;
+    public ImageView photo;
     @BindView(R.id.description)
-    TextView description;
+    public TextView description;
     @BindView(R.id.name)
-    TextView name;
+    public TextView name;
 
-    MainActivity activity;
+    private MainActivity activity;
     private Unbinder unbinder;
 
     private Option option;

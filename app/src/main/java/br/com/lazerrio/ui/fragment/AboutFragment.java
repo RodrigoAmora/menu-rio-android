@@ -18,7 +18,7 @@ import butterknife.Unbinder;
 public class AboutFragment extends Fragment {
 
     @BindView(R.id.version)
-    TextView version;
+    public TextView version;
 
     private Unbinder unbinder;
 
