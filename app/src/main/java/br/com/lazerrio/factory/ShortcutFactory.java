@@ -32,7 +32,7 @@ public class ShortcutFactory {
 
             shortcutInfos.add(shortcutInfo);
         }
-        
+
         return shortcutInfos;
     }
 

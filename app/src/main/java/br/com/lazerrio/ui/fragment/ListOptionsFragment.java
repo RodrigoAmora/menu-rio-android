@@ -107,7 +107,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.search_option, menu);
 
-        android.support.v7.widget.SearchView mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        SearchView mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         mSearchView.setQueryHint(getString(R.string.search_by_name));
         mSearchView.setOnCloseListener(this);
         mSearchView.setOnQueryTextListener(this);
@@ -116,20 +116,16 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     }
 
     @Override
-    public void onLocationChanged(Location location) {
-    }
+    public void onLocationChanged(Location location) {}
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-    }
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
 
     @Override
-    public void onProviderEnabled(String provider) {
-    }
+    public void onProviderEnabled(String provider) {}
 
     @Override
-    public void onProviderDisabled(String provider) {
-    }
+    public void onProviderDisabled(String provider) {}
 
     @Override
     public boolean onQueryTextSubmit(String query) {
