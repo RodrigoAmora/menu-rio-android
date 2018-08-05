@@ -18,7 +18,7 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
 
     private Option option;
 
-    TextView tvAddress, tvName;
+    private TextView tvAddress, tvName;
 
     public AddressInfoWindowCustom(Context context, Option option) {
         this.context = context;
