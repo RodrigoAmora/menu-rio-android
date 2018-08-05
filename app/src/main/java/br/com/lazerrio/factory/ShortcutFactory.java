@@ -16,6 +16,7 @@ public class ShortcutFactory {
     @TargetApi(26)
     public static List<ShortcutInfo> createShortcutInfos(Context context, String[] shortLabels, String[] disabledMessage, String[] options, Integer[] icons) {
         List<ShortcutInfo> shortcutInfos = new ArrayList();
+
         for (int i = 0; i < shortLabels.length; i++) {
             Intent intentRestaurant = new Intent(context, MainActivity.class);
             intentRestaurant.putExtra("option", options[i]);
@@ -31,6 +32,7 @@ public class ShortcutFactory {
 
             shortcutInfos.add(shortcutInfo);
         }
+        
         return shortcutInfos;
     }
 
