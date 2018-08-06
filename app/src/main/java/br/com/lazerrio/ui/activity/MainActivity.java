@@ -59,7 +59,12 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            int fragmentCount = getSupportFragmentManager().getBackStackEntryCount();
+            if (fragmentCount > 1) {
+                getSupportFragmentManager().popBackStack();
+            } else {
+                finish();
+            }
         }
     }
 
@@ -172,7 +177,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void changeFragment(Fragment fragment, Bundle bundle) {
-        FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), false, bundle);
+        FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), true, bundle);
     }
 
     private void checkOptionInIntent() {

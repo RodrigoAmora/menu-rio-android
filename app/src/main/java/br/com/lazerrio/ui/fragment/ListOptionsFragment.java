@@ -243,7 +243,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             public void onItemClick(Option option) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("option", option);
-                FragmentUtil.changeFragment(R.id.conatiner, new DetailsFragment(), activity.getSupportFragmentManager(), false, bundle);
+                FragmentUtil.changeFragment(R.id.conatiner, new DetailsFragment(), activity.getSupportFragmentManager(), true, bundle);
             }
         });
     }
