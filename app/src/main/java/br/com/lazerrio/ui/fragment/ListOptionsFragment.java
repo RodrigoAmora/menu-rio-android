@@ -61,14 +61,15 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     @BindView(R.id.progress_bar)
     LinearLayout progressBar;
 
+    @Inject
+    ListOpitonsService service;
+
     private Call<List<Option>> call;
     private List<Option> optionList;
     private Unbinder unbinder;
 
-    @Inject
-    ListOpitonsService service;
-    ListOptionsCallback callback;
-    MainActivity activity;
+    private ListOptionsCallback callback;
+    private MainActivity activity;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

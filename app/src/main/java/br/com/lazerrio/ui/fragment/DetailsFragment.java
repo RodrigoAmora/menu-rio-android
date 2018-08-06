@@ -37,9 +37,9 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
     @BindView(R.id.name)
     public TextView name;
 
-    private MainActivity activity;
     private Unbinder unbinder;
 
+    private MainActivity activity;
     private Option option;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)

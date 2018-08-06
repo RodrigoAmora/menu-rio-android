@@ -11,11 +11,7 @@ public class NetworkUtil {
         boolean mobileIsConnected = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected();
         boolean wifiIsConnected = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected();
 
-        if (!mobileIsConnected && !wifiIsConnected) {
-            return false;
-        }
-
-        return true;
+        return !(!mobileIsConnected && !wifiIsConnected);
     }
 
 }

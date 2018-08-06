@@ -14,11 +14,7 @@ import br.com.lazerrio.model.Option;
 public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
 
     private Context context;
-    private LayoutInflater layoutInflater;
-
     private Option option;
-
-    private TextView tvAddress, tvName;
 
     public AddressInfoWindowCustom(Context context, Option option) {
         this.context = context;
@@ -27,17 +23,17 @@ public class AddressInfoWindowCustom implements GoogleMap.InfoWindowAdapter {
 
     @Override
     public View getInfoWindow(Marker marker) {
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.address_info_window_adapter, null);
 
-        tvName = view.findViewById(R.id.name);
+        TextView tvName = view.findViewById(R.id.name);
         tvName.setText(option.getName());
 
         String address = option.getAddress()+", "
                             +option.getNumber()+" - "
                             +option.getNeighborhood();
 
-        tvAddress = view.findViewById(R.id.address);
+        TextView tvAddress = view.findViewById(R.id.address);
         tvAddress.setText(address);
 
         return view;

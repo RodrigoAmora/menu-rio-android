@@ -35,7 +35,7 @@ public class MainFragment extends Fragment {
     @BindView(R.id.theater)
     LinearLayout theater;
 
-    Unbinder unbinder;
+    private Unbinder unbinder;
 
     @Nullable
     @Override
