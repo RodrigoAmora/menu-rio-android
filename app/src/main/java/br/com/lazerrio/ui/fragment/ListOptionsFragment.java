@@ -6,6 +6,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -80,7 +81,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         return rootView;
@@ -178,45 +179,47 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
         if (NetworkUtil.checkConnection(activity)) {
             String option = getArguments().getString("option");
             progressBar.setVisibility(View.VISIBLE);
-            switch (option) {
-                case "beach":
-                    call = service.listAllBeahes();
-                    break;
+            if (option != null) {
+                switch (option) {
+                    case "beach":
+                        call = service.listAllBeahes();
+                        break;
 
-                case "hotel":
-                    call = service.listAllHotels();
-                    break;
+                    case "hotel":
+                        call = service.listAllHotels();
+                        break;
 
-                case "leisure":
-                    call = service.listAllLeisures();
-                    break;
+                    case "leisure":
+                        call = service.listAllLeisures();
+                        break;
 
-                case "movie":
-                    call = service.listAllMovie();
-                    break;
+                    case "movie":
+                        call = service.listAllMovie();
+                        break;
 
-                case "museum":
-                    call = service.listAllMuseum();
-                    break;
+                    case "museum":
+                        call = service.listAllMuseum();
+                        break;
 
-                case "restaurant":
-                    call = service.listAllRestaurants();
-                    break;
+                    case "restaurant":
+                        call = service.listAllRestaurants();
+                        break;
 
-                case "shopping":
-                    call = service.listAllShoppings();
-                    break;
+                    case "shopping":
+                        call = service.listAllShoppings();
+                        break;
 
-                case "sport":
-                    call = service.listAllSports();
-                    break;
+                    case "sport":
+                        call = service.listAllSports();
+                        break;
 
-                case "theater":
-                    call = service.listAllTeathers();
-                    break;
+                    case "theater":
+                        call = service.listAllTeathers();
+                        break;
+                }
+
+                call.enqueue(callback);
             }
-
-            call.enqueue(callback);
         } else {
             Toast.makeText(activity, getString(R.string.alert_no_internet), Toast.LENGTH_LONG).show();
         }
@@ -265,7 +268,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     @OnClick(R.id.fab_list_options_nearby_to_me)
     public void filterOptionsNearby() {
-        List<Option> optionsNearby = new ArrayList();
+        ArrayList optionsNearby = new ArrayList();
         Location myLocation = getLocation(activity);
         if (myLocation != null) {
             for (Option option : optionList) {
@@ -295,23 +298,24 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     public Location getLocation(Context context) {
         if (GPSUtil.gpsIsEnable(context)) {
             LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+            if (locationManager != null) {
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
-            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            if (location != null) {
-                return location;
+                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                if (location != null) {
+                    return location;
+                }
+
+                return null;
             }
-
-            return null;
         }
 
         Toast.makeText(context, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
         return null;
     }
 
-    public MainActivity getMaintActivity() {
+    public void getMaintActivity() {
         activity = (MainActivity) getActivity();
-        return activity;
     }
 
 }
