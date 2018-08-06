@@ -44,6 +44,7 @@
     <string name="name">Name:</string>
     <string name="no_result">No result!</string>
     <string name="no_options_nearby">There isn\'t options nearby.</string>
+    <string name="options">Options</string>
     <string name="restaurants">Restaurants</string>
     <string name="theaters">Theaters</string>
     <string name="search">Search</string>
