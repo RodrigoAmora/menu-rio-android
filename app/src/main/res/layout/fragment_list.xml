@@ -17,14 +17,19 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <LinearLayout
+    <CalendarView
         android:id="@+id/progress_bar"
+        app:cardCornerRadius="5dp"
         android:background="@android:color/white"
         android:orientation="vertical"
         android:visibility="gone"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +41,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </LinearLayout>
+        </LinearLayout>
+    </CalendarView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_list_all_options"

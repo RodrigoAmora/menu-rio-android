@@ -21,7 +21,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.CalendarView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     FloatingActionButton fabListAllOptions;
 
     @BindView(R.id.progress_bar)
-    LinearLayout progressBar;
+    CalendarView progressBar;
 
     @Inject
     ListOpitonsService service;
