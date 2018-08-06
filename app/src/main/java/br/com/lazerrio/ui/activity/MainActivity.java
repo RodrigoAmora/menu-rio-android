@@ -6,6 +6,7 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -71,17 +72,15 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_about) {
             changeFragment(new AboutFragment(), null);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         Bundle bundle = new Bundle();
 
@@ -139,6 +138,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_theater:
                 bundle.putString("option", "theater");
                 changeFragment(new ListOptionsFragment(), bundle);
+                break;
+
+            default:
                 break;
         }
 

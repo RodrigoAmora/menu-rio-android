@@ -18,8 +18,7 @@ public class MyApplication extends Application {
 
     private void createComponents() {
         listOptionsComponent = DaggerListOptionsComponent.builder()
-                .listOptionsModule(new ListOptionsModule(this))
-                .build();
+                                .build();
     }
 
     public ListOptionsComponent getListOptionsComponent() {
