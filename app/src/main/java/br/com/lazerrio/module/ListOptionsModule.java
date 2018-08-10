@@ -1,5 +1,6 @@
 package br.com.lazerrio.module;
 
+import br.com.lazerrio.BuildConfig;
 import br.com.lazerrio.factory.RetrofitFactory;
 import br.com.lazerrio.service.ListOpitonsService;
 import dagger.Module;
@@ -11,7 +12,7 @@ public class ListOptionsModule {
 
     @Provides
     public ListOpitonsService getListOptionsService() {
-        Retrofit retrofit = RetrofitFactory.createRetrofit();
+        Retrofit retrofit = RetrofitFactory.createRetrofit(BuildConfig.BASE_URL_LAZER_RIO_API);
         ListOpitonsService service = retrofit.create(ListOpitonsService.class);
         return service;
     }
