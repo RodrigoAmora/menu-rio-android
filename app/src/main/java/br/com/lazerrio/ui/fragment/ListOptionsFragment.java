@@ -298,6 +298,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     public Location getLocation(Context context) {
         if (GPSUtil.gpsIsEnable(context)) {
             LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+
             if (locationManager != null) {
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
@@ -311,6 +312,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
         }
 
         Toast.makeText(context, getString(R.string.alert_gps_disabled), Toast.LENGTH_LONG).show();
+
         return null;
     }
 
