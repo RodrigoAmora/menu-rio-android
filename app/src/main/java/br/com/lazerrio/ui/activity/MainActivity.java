@@ -59,11 +59,12 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            int fragmentCount = getSupportFragmentManager().getBackStackEntryCount();
-            if (fragmentCount > 1) {
-                getSupportFragmentManager().popBackStack();
-            } else {
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count == 1) {
                 finish();
+                moveTaskToBack(true);
+            } else {
+                getSupportFragmentManager().popBackStack();
             }
         }
     }
