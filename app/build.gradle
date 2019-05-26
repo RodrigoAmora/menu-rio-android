@@ -8,8 +8,8 @@ android {
         applicationId "br.com.lazerrio"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 16
-        versionName "3.1.5"
+        versionCode 17
+        versionName "3.1.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
