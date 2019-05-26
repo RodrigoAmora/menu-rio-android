@@ -4,7 +4,6 @@ import android.app.Application;
 
 import br.com.lazerrio.component.DaggerListOptionsComponent;
 import br.com.lazerrio.component.ListOptionsComponent;
-import br.com.lazerrio.module.ListOptionsModule;
 
 public class MyApplication extends Application {
 
