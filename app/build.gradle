@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "br.com.lazerrio"
@@ -47,7 +47,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
 
     //BUTTER-KNIFE
-    def butterKnifeVersion = '8.8.1'
+    def butterKnifeVersion = '10.1.0'
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
@@ -65,6 +65,8 @@ dependencies {
     //RETROFIT2
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    implementation 'com.google.android.play:core:1.3.4'
 
     //TESTS
     testImplementation 'junit:junit:4.12'
