@@ -10,7 +10,7 @@ android {
         targetSdkVersion 26
         versionCode 17
         versionName "3.1.6"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -36,11 +36,11 @@ dependencies {
     //MATERIAL-DESIGN
     def materialDesignVersion = '28.0.0'
     //noinspection GradleCompatible
-    implementation "com.android.support:appcompat-v7:$materialDesignVersion"
-    implementation "com.android.support:design:$materialDesignVersion"
-    implementation "com.android.support:cardview-v7:$materialDesignVersion"
-    implementation "com.android.support:recyclerview-v7:$materialDesignVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     //GOOGLE-PLAY-SERVICES
     def googlePlayServicesVersion = '15.0.1'
@@ -71,6 +71,6 @@ dependencies {
 
     //TESTS
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }

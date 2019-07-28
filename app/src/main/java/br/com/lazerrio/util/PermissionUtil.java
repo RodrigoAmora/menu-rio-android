@@ -1,7 +1,7 @@
 package br.com.lazerrio.util;
 
 import android.app.Activity;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 
 public class PermissionUtil {
 

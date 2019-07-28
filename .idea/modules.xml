@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LazerRio.iml" filepath="$PROJECT_DIR$/LazerRio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/menu-rio-android.iml" filepath="$PROJECT_DIR$/menu-rio-android.iml" />
     </modules>
   </component>
 </project>
