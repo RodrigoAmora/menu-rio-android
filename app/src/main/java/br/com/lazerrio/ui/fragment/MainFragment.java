@@ -95,7 +95,7 @@ public class MainFragment extends Fragment {
                 break;
         }
 
-        FragmentUtil.changeFragment(R.id.conatiner, new ListOptionsFragment(), activity.getSupportFragmentManager(), true, bundle);
+        FragmentUtil.changeFragment(R.id.container, new ListOptionsFragment(), activity.getSupportFragmentManager(), true, bundle);
     }
 
 }

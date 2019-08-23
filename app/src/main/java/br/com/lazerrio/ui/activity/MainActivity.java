@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void changeFragment(Fragment fragment, Bundle bundle) {
-        FragmentUtil.changeFragment(R.id.conatiner, fragment, getSupportFragmentManager(), true, bundle);
+        FragmentUtil.changeFragment(R.id.container, fragment, getSupportFragmentManager(), true, bundle);
     }
 
     private void checkOptionInIntent() {
