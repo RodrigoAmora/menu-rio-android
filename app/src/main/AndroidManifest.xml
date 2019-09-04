@@ -49,5 +49,4 @@
         <meta-data android:name="android.app.shortcuts"
             android:resource="@xml/shortcut" />
     </application>
-
 </manifest>
