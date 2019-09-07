@@ -6,18 +6,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.MenuItemCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +36,7 @@ import br.com.lazerrio.application.MyApplication;
 import br.com.lazerrio.callback.ListOptionsCallback;
 import br.com.lazerrio.component.ListOptionsComponent;
 import br.com.lazerrio.delegate.OptionDelegate;
+import br.com.lazerrio.manager.CacheManager;
 import br.com.lazerrio.model.Option;
 import br.com.lazerrio.service.ListOpitonsService;
 import br.com.lazerrio.ui.activity.MainActivity;
@@ -71,14 +72,18 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private List<Option> optionList;
     private Unbinder unbinder;
 
+    private CacheManager<List<Option>> cacheManager;
     private ListOptionsCallback callback;
     private MainActivity activity;
+
+    private String TAG_CACHE = "opcoes_lista";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        callback = new ListOptionsCallback(this);
+        this.callback = new ListOptionsCallback(this);
+        this.cacheManager = new CacheManager<>();
     }
 
     @Nullable
@@ -156,17 +161,19 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
 
     @Override
     public void error() {
-        progressBar.setVisibility(View.GONE);
+        this.progressBar.setVisibility(View.GONE);
         Toast.makeText(activity, getString(R.string.error_couldnt_was_possible_get_options), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void success(List<Option> options) {
-        progressBar.setVisibility(View.GONE);
-        optionList = options;
-        if (optionList.isEmpty()) {
+        this.progressBar.setVisibility(View.GONE);
+        this.optionList = options;
+        if (this.optionList.isEmpty()) {
             Toast.makeText(activity, getString(R.string.no_result), Toast.LENGTH_LONG).show();
         } else {
+            this.cacheManager.deleteCache(TAG_CACHE);
+            this.cacheManager.saveCache(TAG_CACHE, this.optionList);
             populateRecyclerView(options);
         }
     }
@@ -180,7 +187,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     private void getListOptions() {
         if (NetworkUtil.checkConnection(activity)) {
             String option = getArguments().getString("option");
-            progressBar.setVisibility(View.VISIBLE);
+            this.progressBar.setVisibility(View.VISIBLE);
             if (option != null) {
                 switch (option) {
                     case "beach":
@@ -223,6 +230,8 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
                 call.enqueue(callback);
             }
         } else {
+            this.optionList = cacheManager.getCache(TAG_CACHE);
+            populateRecyclerView(this.optionList);
             Toast.makeText(activity, getString(R.string.alert_no_internet), Toast.LENGTH_LONG).show();
         }
     }
