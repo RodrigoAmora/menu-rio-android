@@ -3,12 +3,15 @@
 
     <string name="GOOGLE_API_KEY">AIzaSyAIq9Jy5kFpiXUOxhCQPQSSCrm3ckh9LJ0</string>
 
+    <!-- NavigationDrawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Menu -->
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Alerts -->
     <string name="alert_no_internet">No internet!</string>
     <string name="alert_gps_disabled">GPS disabled!</string>
 
