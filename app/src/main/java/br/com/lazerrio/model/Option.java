@@ -104,5 +104,4 @@ public class Option implements Serializable {
     public void setSite(String site) {
         this.site = site;
     }
-
 }
