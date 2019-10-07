@@ -12,6 +12,7 @@ The project use as dependencies:
 - Butter Knife;
 - Circle View Image;
 - Picasso;
+- Hawk;
 
 <hr>
 
