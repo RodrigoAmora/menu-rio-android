@@ -48,21 +48,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         View rootView = inflater.inflate(R.layout.fragment_details, container, false);
 
         unbinder = ButterKnife.bind(this, rootView);
-
-        option = (Option) getArguments().getSerializable("option");
-
-        description.setText(option.getDescription());
-        name.setText(option.getName());
-
-        String urlPhoto = option.getPhoto();
-        if (urlPhoto == null || urlPhoto.isEmpty()) {
-            Picasso.get().load(R.drawable.no_photo).into(photo);
-        } else {
-            Picasso.get().load(urlPhoto).placeholder(R.mipmap.ic_launcher).into(photo);
-        }
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
-        mapFragment.getMapAsync(this);
+        initView();
 
         return rootView;
     }
@@ -87,7 +73,6 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         map.moveCamera(update);
         map.addMarker(new MarkerOptions()
                 .title(getArguments().getString("name"))
-                //.snippet(getArguments().getString("desc"))
                 .position(latLng));
         map.setMyLocationEnabled(false);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -96,4 +81,20 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         map.setInfoWindowAdapter(infoWindowCustom);
     }
 
+    private void initView() {
+        option = (Option) getArguments().getSerializable("option");
+
+        description.setText(option.getDescription());
+        name.setText(option.getName());
+
+        String urlPhoto = option.getPhoto();
+        if (urlPhoto == null || urlPhoto.isEmpty()) {
+            Picasso.get().load(R.drawable.no_photo).into(photo);
+        } else {
+            Picasso.get().load(urlPhoto).placeholder(R.mipmap.ic_launcher).into(photo);
+        }
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
+        mapFragment.getMapAsync(this);
+    }
 }
