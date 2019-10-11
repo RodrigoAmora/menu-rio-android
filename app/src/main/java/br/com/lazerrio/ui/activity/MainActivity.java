@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
         String shortLabels[] = {getString(R.string.leisure), getString(R.string.movies),
-                getString(R.string.restaurants), getString(R.string.shopping_mall), getString(R.string.sports)};
+                getString(R.string.restaurants), getString(R.string.shopping_mall)};
 
         String disabledMessage[] = {getString(R.string.shortcut_info_leisures),
                 getString(R.string.shortcut_info_movies), getString(R.string.shortcut_info_restaurants), getString(R.string.shortcut_info_shopping_mall),
