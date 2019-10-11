@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_about) {
             changeFragment(new AboutFragment(), null);
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -210,5 +211,4 @@ public class MainActivity extends AppCompatActivity
         List<ShortcutInfo> shortcutInfos = ShortcutFactory.createShortcutInfos(this, shortLabels, disabledMessage, options, icons);
         shortcutManager.setDynamicShortcuts(shortcutInfos);
     }
-
 }

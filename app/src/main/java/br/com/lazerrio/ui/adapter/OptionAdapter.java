@@ -2,11 +2,12 @@ package br.com.lazerrio.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -30,8 +31,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
     @Override
     public OptionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_option, parent, false);
-        OptionViewHolder holder = new OptionViewHolder(view);
-        return holder;
+        return new OptionViewHolder(view);
     }
 
     @Override
