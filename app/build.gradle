@@ -8,8 +8,8 @@ android {
         applicationId "br.com.lazerrio"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 19
-        versionName "3.2.1"
+        versionCode 20
+        versionName "3.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -54,7 +54,12 @@ dependencies {
     implementation "com.google.android.material:material:$androidx"
     implementation "androidx.cardview:cardview:$androidx"
     implementation "androidx.recyclerview:recyclerview:$androidx"
+
+    //CONSTRAINT-LAYOUT
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+
+    implementation 'com.google.android.play:core:1.3.4'
 
     //GOOGLE-PLAY-SERVICES
     def googlePlayServicesVersion = '15.0.1'
@@ -80,8 +85,6 @@ dependencies {
     //RETROFIT2
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-
-    implementation 'com.google.android.play:core:1.3.4'
 
     //HAWK
     implementation 'com.orhanobut:hawk:2.0.1'
