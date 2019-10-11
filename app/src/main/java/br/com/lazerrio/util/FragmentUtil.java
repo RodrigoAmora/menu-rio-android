@@ -14,7 +14,6 @@ public class FragmentUtil {
         if (backstack) {
             transacao.addToBackStack(null);
         }
-
         if (bundle != null) {
             fragment.setArguments(bundle);
         }
