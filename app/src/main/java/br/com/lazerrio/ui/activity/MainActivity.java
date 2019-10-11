@@ -203,9 +203,9 @@ public class MainActivity extends AppCompatActivity
                 getString(R.string.shortcut_info_movies), getString(R.string.shortcut_info_restaurants), getString(R.string.shortcut_info_shopping_mall),
                 getString(R.string.shortcut_info_sport)};
 
-        String options[] = {"leisure", "movie", "restaurant", "shopping", "sport"};
+        String options[] = {"leisure", "movie", "restaurant", "shopping"};
 
-        Integer icons[] = {R.mipmap.opcoes, R.mipmap.cine, R.mipmap.chef, R.mipmap.shopping, R.mipmap.esportes};
+        Integer icons[] = {R.drawable.ic_shortcut_leisure, R.drawable.ic_shortcut_cinema, R.drawable.ic_shortcut_restaurant, R.drawable.ic_shortcut_shopping_mall};
 
         List<ShortcutInfo> shortcutInfos = ShortcutFactory.createShortcutInfos(this, shortLabels, disabledMessage, options, icons);
         shortcutManager.setDynamicShortcuts(shortcutInfos);
