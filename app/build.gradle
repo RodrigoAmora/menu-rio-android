@@ -50,7 +50,7 @@ dependencies {
     //MATERIAL-DESIGN
     def materialDesignVersion = '28.0.0'
     def androidx = '1.0.0'
-    implementation "androidx.appcompat:appcompat:$androidx"
+    implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "com.google.android.material:material:$androidx"
     implementation "androidx.cardview:cardview:$androidx"
     implementation "androidx.recyclerview:recyclerview:$androidx"
@@ -59,10 +59,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
 
-    implementation 'com.google.android.play:core:1.3.4'
+    implementation 'com.google.android.play:core:1.6.3'
 
     //GOOGLE-PLAY-SERVICES
-    def googlePlayServicesVersion = '15.0.1'
+    def googlePlayServicesVersion = '17.0.0'
     implementation "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
     implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
 
@@ -91,6 +91,6 @@ dependencies {
 
     //TESTS
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
