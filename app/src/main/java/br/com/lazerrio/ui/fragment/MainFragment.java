@@ -1,12 +1,13 @@
 package br.com.lazerrio.ui.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import br.com.lazerrio.R;
 import br.com.lazerrio.ui.activity.MainActivity;
@@ -97,5 +98,4 @@ public class MainFragment extends Fragment {
 
         FragmentUtil.changeFragment(R.id.container, new ListOptionsFragment(), activity.getSupportFragmentManager(), true, bundle);
     }
-
 }
