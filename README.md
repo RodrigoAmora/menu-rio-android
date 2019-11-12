@@ -6,11 +6,12 @@ The project run from Android 4.1
 
 The project use as dependencies:
 - Material Design;
+- CONSTRAINT-LAYOUT
 - Google Maps API;
-- Retrofit 2;
-- Dagger 2;
+- Retrofit;
+- Dagger;
 - Butter Knife;
-- Circle View Image;
+- CircleViewImage;
 - Picasso;
 - Hawk;
 
