@@ -6,7 +6,7 @@ The project run from Android 4.1
 
 The project use as dependencies:
 - Material Design;
-- CONSTRAINT-LAYOUT
+- Constraint Layout;
 - Google Maps API;
 - Retrofit;
 - Dagger;
