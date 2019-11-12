@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    def materialDesignVersion = '28.0.0'
+    //def materialDesignVersion = '28.0.0'
 
     //ANDROID-X
     def androidx = '1.0.0'
@@ -73,7 +73,7 @@ dependencies {
     //CIRCLE-VIEW-IMAGE
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
-    //DAGGER2
+    //DAGGER
     def daggerVersion = '2.24'
     implementation "com.google.dagger:dagger:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
@@ -81,7 +81,7 @@ dependencies {
     //PICASSO
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    //RETROFIT2
+    //RETROFIT
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
