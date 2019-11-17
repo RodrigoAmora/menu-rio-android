@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         createToolbarAndNavigationView();
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (Build.VERSION.SDK_INT >= 26) {
-            createShorcut();
+            createShorcuts();
             checkOptionInIntent();
         } else {
             changeFragment(new MainFragment(), null);
@@ -81,7 +82,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_about) {
             changeFragment(new AboutFragment(), null);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @TargetApi(26)
-    private void createShorcut() {
+    private void createShorcuts() {
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
         String shortLabels[] = {getString(R.string.leisure), getString(R.string.movies),
