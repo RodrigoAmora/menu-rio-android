@@ -41,5 +41,4 @@ public class OptionViewHolder extends RecyclerView.ViewHolder {
     public TextView getViewDetails() {
         return viewDetails;
     }
-
 }
