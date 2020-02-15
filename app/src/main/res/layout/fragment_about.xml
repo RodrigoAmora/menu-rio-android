@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="@string/email2"
+                android:text="@string/email"
                 android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="@string/site2"
+                android:text="@string/site"
                 android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
