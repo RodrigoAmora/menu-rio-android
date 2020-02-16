@@ -8,20 +8,22 @@ android {
         applicationId "br.com.lazerrio"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 26
-        versionName "3.5.1"
+        versionCode 27
+        versionName "3.5.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+        debug {
+            debuggable true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL_LAZER_RIO_API", "\"http://rodrigoamora.com.br/LazerRio/rest/\""
         }
 
-        debug {
-            debuggable true
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL_LAZER_RIO_API", "\"http://rodrigoamora.com.br/LazerRio/rest/\""
         }
     }
