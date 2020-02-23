@@ -4,15 +4,15 @@ The project run from Android 5.0 (API Level 21)
 
 <hr>
 This project use as dependencies:
-* Material Design;
-* Constraint Layout;
-* Google Maps API;
-* Retrofit;
-* Dagger;
-* Butter Knife;
-* CircleViewImage;
-* Picasso;
-* Hawk;
+* Material Design
+* Constraint Layout
+* Google Maps API
+* Retrofit
+* Dagger
+* Butter Knife
+* CircleViewImage
+* Picasso
+* Hawk
 <hr>
 
 Avaliable on Play Store: <br>
