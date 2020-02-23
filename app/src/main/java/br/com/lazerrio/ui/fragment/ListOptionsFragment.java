@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
@@ -275,10 +277,12 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     @OnClick(R.id.fab_list_all_options)
     public void listAllOptions() {
         populateRecyclerView(optionList);
+        fadeOut(fabListAllOptions);
     }
 
     @OnClick(R.id.fab_list_options_nearby_to_me)
     public void filterOptionsNearby() {
+        fadeOut(fabListOptionsNextToMe);
         ArrayList optionsNearby = new ArrayList();
         Location myLocation = getLocation(activity);
         if (myLocation != null) {
@@ -331,4 +335,8 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
         activity = (MainActivity) getActivity();
     }
 
+    private void fadeOut(View view) {
+        Animation fadeOut = AnimationUtils.loadAnimation(activity, R.anim.fade_out);
+        view.startAnimation(fadeOut);
+    }
 }
