@@ -3,8 +3,7 @@ Menu Rio is an APP for Android that list Options of Leisure and Sports, Restaura
 The project run from Android 5.0 (API Level 21)
 
 <hr>
-
-The project use as dependencies:
+This project use as dependencies:
 - Material Design;
 - Constraint Layout;
 - Google Maps API;
@@ -14,7 +13,6 @@ The project use as dependencies:
 - CircleViewImage;
 - Picasso;
 - Hawk;
-
 <hr>
 
 Avaliable on Play Store: <br>
