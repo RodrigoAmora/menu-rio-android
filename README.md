@@ -1,5 +1,5 @@
 # Menu Rio
-Menu Rio is an APP for Android that list Options of Leisure and Sports, Restaurants, Beaches, Museuns, Shopping Mall and Theaters on Rio de Janeiro. <br>
+Menu Rio is an APP for Android that list Options of Leisure and Sports, Restaurants, Beaches, Museuns, Shopping Mall and Theaters in Rio de Janeiro. <br><br>
 The project run from Android 5.0 (API Level 21)
 
 <hr>
