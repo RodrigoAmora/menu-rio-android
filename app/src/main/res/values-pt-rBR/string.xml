@@ -13,6 +13,7 @@
     <string name="alert_no_internet">Sem internet!</string>
     <string name="alert_gps_disabled">GPS desativado!</string>
 
+    <!-- Errors -->
     <string name="error_couldnt_was_possible_get_options">Não foi possível pesquisar as opções</string>
 
     <!-- ShortcutInfo -->
@@ -26,6 +27,7 @@
     <string name="shortcut_info_sport">Listar todas as opções de espote.</string>
     <string name="shortcut_info_theaters">Listar todos os teatros.</string>
 
+    <!-- Labels -->
     <string name="address">Endereço:</string>
     <string name="beaches">Praias</string>
     <string name="search_by_name">Buscar por nome...</string>
