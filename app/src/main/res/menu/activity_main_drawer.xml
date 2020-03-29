@@ -50,6 +50,7 @@
             android:title="@string/theaters" />
     </group>
 
+    <!-- Sub-Menu Communicate -->
     <item android:title="@string/communicate">
         <menu>
             <item
@@ -63,5 +64,4 @@
                 android:title="@string/action_about" />
         </menu>
     </item>
-
 </menu>
