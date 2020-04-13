@@ -18,12 +18,12 @@ public class MyApplication extends Application {
         initHawk();
     }
 
-    private void createComponents() {
-        listOptionsComponent = DaggerListOptionsComponent.builder().build();
-    }
-
     private void initHawk() {
         Hawk.init(this).build();
+    }
+
+    private void createComponents() {
+        listOptionsComponent = DaggerListOptionsComponent.builder().build();
     }
 
     public ListOptionsComponent getListOptionsComponent() {
