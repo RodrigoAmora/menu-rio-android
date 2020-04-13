@@ -22,11 +22,11 @@ public class MyApplication extends Application {
         listOptionsComponent = DaggerListOptionsComponent.builder().build();
     }
 
-    public ListOptionsComponent getListOptionsComponent() {
-        return listOptionsComponent;
-    }
-
     private void initHawk() {
         Hawk.init(this).build();
+    }
+
+    public ListOptionsComponent getListOptionsComponent() {
+        return listOptionsComponent;
     }
 }
