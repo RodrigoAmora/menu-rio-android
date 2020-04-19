@@ -9,12 +9,9 @@ import retrofit2.Retrofit;
 
 @Module
 public class ListOptionsModule {
-
     @Provides
     public ListOpitonsService getListOptionsService() {
         Retrofit retrofit = RetrofitFactory.createRetrofit(BuildConfig.BASE_URL_LAZER_RIO_API);
-        ListOpitonsService service = retrofit.create(ListOpitonsService.class);
-        return service;
+        return retrofit.create(ListOpitonsService.class);
     }
-
 }
