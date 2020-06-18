@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
@@ -75,6 +76,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
         map.moveCamera(update);
         map.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
                 .title(getArguments().getString("name"))
                 .position(latLng));
         map.setMyLocationEnabled(false);
@@ -99,5 +101,7 @@ public class DetailsFragment extends Fragment implements com.google.android.gms.
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         mapFragment.getMapAsync(this);
+        mapFragment.setMenuVisibility(false);
+        mapFragment.setHasOptionsMenu(false);
     }
 }
