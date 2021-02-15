@@ -1,7 +1,6 @@
 package br.com.lazerrio.ui.activity;
 
 import android.annotation.TargetApi;
-import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.os.Build;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -37,16 +35,15 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
         createToolbarAndNavigationView();
-
-        if (!checkPermission()) {
-            PermissionUtil.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION});
-        }
+        checkPermissions();
 
         if (Build.VERSION.SDK_INT >= 26) {
             createShorcuts();
@@ -58,7 +55,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -153,7 +149,6 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
@@ -163,7 +158,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -174,10 +169,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setItemIconTintList(null);
     }
 
-    private boolean checkPermission() {
-        int resultAccessFineLocation = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION);
-        int resultAccessCoarseLocation = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION);
-        return resultAccessFineLocation == PackageManager.PERMISSION_GRANTED && resultAccessCoarseLocation == PackageManager.PERMISSION_GRANTED;
+    private void checkPermissions() {
+        String[] permissions = new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION};
+        if (PermissionUtil.checkPermissions(this, permissions)) {
+            PermissionUtil.requestPermissions(this, permissions);
+        }
     }
 
     private void changeFragment(Fragment fragment, Bundle bundle) {
@@ -213,4 +209,5 @@ public class MainActivity extends AppCompatActivity
         List<ShortcutInfo> shortcutInfos = ShortcutFactory.createShortcutInfos(this, shortLabels, disabledMessage, options, icons);
         shortcutManager.setDynamicShortcuts(shortcutInfos);
     }
+
 }
