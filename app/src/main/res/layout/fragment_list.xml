@@ -1,64 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyler_view"
-            android:background="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <CalendarView
+    <ProgressBar
         android:id="@+id/progress_bar"
-        app:cardCornerRadius="5dp"
-        android:background="@android:color/white"
-        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:elevation="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:visibility="gone"
-        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/progressBarStyleLarge" />
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleLarge" />
 
-        <TextView
-            android:text="@string/wait"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        </LinearLayout>
-    </CalendarView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyler_view"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginStart="@dimen/margin_start_and_end"
+        android:layout_marginEnd="@dimen/margin_start_and_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_list_all_options"
+        android:elevation="3dp"
         android:src="@drawable/ic_refresh"
-        app:layout_anchor="@id/fab_list_options_nearby_to_me"
-        android:layout_gravity="end|top"
-        android:layout_margin="15dp"
+        android:layout_marginRight="@dimen/margin_top"
+        android:layout_marginBottom="@dimen/margin_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:foregroundGravity="right|bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_list_options_nearby_to_me"
+        android:elevation="3dp"
         android:src="@drawable/ic_location"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="15dp"
+        android:layout_marginRight="@dimen/margin_top"
+        android:layout_marginBottom="@dimen/margin_top"
+        app:layout_constraintBottom_toTopOf="@id/fab_list_all_options"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

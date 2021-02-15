@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.CalendarView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -65,7 +65,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     FloatingActionButton fabListAllOptions;
 
     @BindView(R.id.progress_bar)
-    CalendarView progressBar;
+    ProgressBar progressBar;
 
     @Inject
     ListOpitonsService service;
@@ -190,6 +190,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
         if (NetworkUtil.checkConnection(activity)) {
             String option = getArguments().getString("option");
             this.progressBar.setVisibility(View.VISIBLE);
+
             if (option != null) {
                 switch (option) {
                     case "beach":
