@@ -40,7 +40,7 @@ import br.com.lazerrio.component.ListOptionsComponent;
 import br.com.lazerrio.delegate.OptionDelegate;
 import br.com.lazerrio.manager.CacheManager;
 import br.com.lazerrio.model.Option;
-import br.com.lazerrio.service.ListOpitonsService;
+import br.com.lazerrio.service.ListOptionsService;
 import br.com.lazerrio.ui.activity.MainActivity;
 import br.com.lazerrio.ui.adapter.OptionAdapter;
 import br.com.lazerrio.ui.listener.OnItemClickListener;
@@ -68,7 +68,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
     ProgressBar progressBar;
 
     @Inject
-    ListOpitonsService service;
+    ListOptionsService service;
 
     private Call<List<Option>> call;
     private List<Option> optionList;
