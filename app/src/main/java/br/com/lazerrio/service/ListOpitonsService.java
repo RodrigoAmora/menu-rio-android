@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 
 public interface ListOpitonsService {
 
-    @GET("praias.php")
+    @GET("beach.php")
     Call<List<Option>> listAllBeahes();
 
     @GET("leisure.php")
