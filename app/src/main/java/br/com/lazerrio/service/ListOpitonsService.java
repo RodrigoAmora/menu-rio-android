@@ -9,10 +9,10 @@ import retrofit2.http.GET;
 public interface ListOpitonsService {
 
     @GET("beach.php")
-    Call<List<Option>> listAllBeahes();
+    Call<List<Option>> listAllBeaches();
 
     @GET("leisure.php")
-    Call<List<Option>> listAllLeisures();
+    Call<List<Option>> listAllLeisure();
 
     @GET("hotel.php")
     Call<List<Option>> listAllHotels();

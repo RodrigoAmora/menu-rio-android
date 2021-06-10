@@ -194,7 +194,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
             if (option != null) {
                 switch (option) {
                     case "beach":
-                        call = service.listAllBeahes();
+                        call = service.listAllBeaches();
                         break;
 
                     case "hotel":
@@ -202,7 +202,7 @@ public class ListOptionsFragment extends Fragment implements LocationListener, S
                         break;
 
                     case "leisure":
-                        call = service.listAllLeisures();
+                        call = service.listAllLeisure();
                         break;
 
                     case "movie":
