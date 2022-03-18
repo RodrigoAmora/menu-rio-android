@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +45,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
                 listener.onItemClick(optionList.get(position));
             }
         });
+
+        fadeOut(holder.itemView);
     }
 
     @Override
@@ -54,4 +58,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionViewHolder> {
         this.listener = listener;
     }
 
+    private void fadeOut(View view) {
+        Animation fadeOut = AnimationUtils.loadAnimation(context, R.anim.fade_out);
+        view.startAnimation(fadeOut);
+    }
 }
