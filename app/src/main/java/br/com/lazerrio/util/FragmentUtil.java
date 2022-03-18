@@ -10,7 +10,11 @@ import br.com.lazerrio.R;
 
 public class FragmentUtil {
 
-    public static void changeFragment(int id, Fragment fragment, FragmentManager fragmentManager, boolean backstack, Bundle bundle) {
+    public static void changeFragment(int id,
+                                      Fragment fragment,
+                                      FragmentManager fragmentManager,
+                                      boolean backStack,
+                                      Bundle bundle) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(
                 R.anim.slide_in,  // enter
@@ -20,7 +24,7 @@ public class FragmentUtil {
         );
         transaction.replace(id, fragment);
 
-        if (backstack) {
+        if (backStack) {
             transaction.addToBackStack(null);
         }
         if (bundle != null) {
