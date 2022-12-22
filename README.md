@@ -17,5 +17,5 @@ This project use as dependencies:
 
 <hr>
 
-Avaliable on Play Store: <br>
+Available on Play Store: <br>
 https://play.google.com/store/apps/details?id=br.com.lazerrio
