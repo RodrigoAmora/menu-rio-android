@@ -2,16 +2,27 @@ package br.com.lazerrio.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 
 public class NetworkUtil {
 
     public static boolean checkConnection(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        boolean mobileIsConnected = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected();
-        boolean wifiIsConnected = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected();
+        Network network = cm.getActiveNetwork();
+        if (network != null) {
+            NetworkCapabilities activeNetwork = cm.getNetworkCapabilities(network);
 
-        return !(!mobileIsConnected && !wifiIsConnected);
+            if (activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                return true;
+            }
+            if (activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
