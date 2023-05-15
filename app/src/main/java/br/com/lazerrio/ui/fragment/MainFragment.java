@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import br.com.lazerrio.R;
 import br.com.lazerrio.ui.activity.MainActivity;
 import br.com.lazerrio.util.FragmentUtil;
+import br.com.lazerrio.util.NetworkUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -55,47 +57,51 @@ public class MainFragment extends Fragment {
     @OnClick({R.id.beach, R.id.hotel, R.id.leisure, R.id.movie, R.id.museum, R.id.restaurant, R.id.shopping_mall, R.id.sport, R.id.theater})
     public void irOpcoes(View view) {
         MainActivity activity = (MainActivity) getActivity();
-        Bundle bundle = new Bundle();
+        if (NetworkUtil.checkConnection(activity)) {
+            Bundle bundle = new Bundle();
 
-        int viewId = view.getId();
-        switch (viewId) {
-            case R.id.beach:
-                bundle.putString("option", "beach");
-                break;
+            int viewId = view.getId();
+            switch (viewId) {
+                case R.id.beach:
+                    bundle.putString("option", "beach");
+                    break;
 
-            case R.id.hotel:
-                bundle.putString("option", "hotel");
-                break;
+                case R.id.hotel:
+                    bundle.putString("option", "hotel");
+                    break;
 
-            case R.id.leisure:
-                bundle.putString("option", "leisure");
-                break;
+                case R.id.leisure:
+                    bundle.putString("option", "leisure");
+                    break;
 
-            case R.id.movie:
-                bundle.putString("option", "movie");
-                break;
+                case R.id.movie:
+                    bundle.putString("option", "movie");
+                    break;
 
-            case R.id.museum:
-                bundle.putString("option", "museum");
-                break;
+                case R.id.museum:
+                    bundle.putString("option", "museum");
+                    break;
 
-            case R.id.restaurant:
-                bundle.putString("option", "restaurant");
-                break;
+                case R.id.restaurant:
+                    bundle.putString("option", "restaurant");
+                    break;
 
-            case R.id.shopping_mall:
-                bundle.putString("option", "shopping");
-                break;
+                case R.id.shopping_mall:
+                    bundle.putString("option", "shopping");
+                    break;
 
-            case R.id.sport:
-                bundle.putString("option", "sport");
-                break;
+                case R.id.sport:
+                    bundle.putString("option", "sport");
+                    break;
 
-            case R.id.theater:
-                bundle.putString("option", "theater");
-                break;
+                case R.id.theater:
+                    bundle.putString("option", "theater");
+                    break;
+            }
+
+            FragmentUtil.changeFragment(R.id.container, new ListOptionsFragment(), activity.getSupportFragmentManager(), true, bundle);
+        } else {
+            Toast.makeText(activity, getString(R.string.alert_no_internet), Toast.LENGTH_LONG).show();
         }
-
-        FragmentUtil.changeFragment(R.id.container, new ListOptionsFragment(), activity.getSupportFragmentManager(), true, bundle);
     }
 }
