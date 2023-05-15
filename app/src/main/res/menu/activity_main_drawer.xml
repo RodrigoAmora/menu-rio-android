@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/grp1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_beach"
             android:icon="@mipmap/praia"
@@ -51,8 +52,8 @@
     </group>
 
     <!-- Sub-Menu Communicate -->
-    <item android:title="@string/communicate">
-        <menu>
+    <group android:id="@+id/grp2"
+        android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
@@ -62,6 +63,5 @@
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_about"
                 android:title="@string/action_about" />
-        </menu>
-    </item>
+    </group>>
 </menu>
