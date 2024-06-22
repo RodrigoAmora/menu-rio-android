@@ -1,10 +1,12 @@
 # Menu Rio
-Menu Rio is an APP for Android that list Options of Leisure and Sports, Restaurants, Beaches, Museuns, Shopping Mall and Theaters in Rio de Janeiro. <br><br>
-The project run from Android 6.0 (API Level 23)
+Descrição:
+----------
+Menu Rio é um app que exibe Shoppings, Restaurantes, Museus e Praias no Rio de Janeiro.<br>
+O projeto roda a partir do Android 8.1 (API Level 27)
 
-<hr>
-
-This project use as dependencies:
+Dependências:
+-------------
+O projeto usa as seguintes dependências:
 * Material Design
 * Constraint Layout
 * Google Maps API
@@ -14,6 +16,20 @@ This project use as dependencies:
 * CircleViewImage
 * Picasso
 * Hawk
+
+Configuração:
+-------------
+Criar o arquivo `secrets.properties` no diretório raiz do projeto e colocar a propriedade `MAPS_API_KEY` com a API_KEY do Google Maps. <br>
+
+Exmpelo:<br>
+`MAPS_API_KEY=<API_KEY_DO_GOOGLE_MAPS>`
+
+Autor:
+------
+<b>Rodrigo Amora</b>
+
+LinkedIn: https://linkedin.com/in/rodrigoamora <br>
+E-mail: rodrigo.amora.freitas@gmail.com
 
 <hr>
 
