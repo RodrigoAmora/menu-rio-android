@@ -14,7 +14,7 @@
     <string name="alert_gps_disabled">GPS disabled!</string>
 
     <!-- Errors -->
-    <string name="error_couldnt_was_possible_get_options">Couldn\'t was possible get the options</string>
+    <string name="error_couldnt_was_possible_get_options">Could\'t was possible get the options</string>
 
     <!-- ShortcutInfo -->
     <string name="shortcut_info_beaches">List all beaches.</string>
