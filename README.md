@@ -2,7 +2,7 @@
 Descrição:
 ----------
 Menu Rio é um app que exibe Shoppings, Restaurantes, Museus e Praias no Rio de Janeiro.<br>
-O projeto roda a partir do Android 8.1 (API Level 27)
+O projeto roda a partir do Android 11 (API Level 30)
 
 Dependências:
 -------------
